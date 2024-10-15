@@ -14,9 +14,7 @@
 | Professeur vacataire                          | Faculté des Sciences de Kénitra                                                                                      | 2019-2021      |
 
 
-Avec plus de **10 ans d'expérience** dans l'analyse de données et des projets de grande envergure touchant à la **statistique**, à la **data science**, et à la **gestion publique**, j'ai eu l'occasion de collaborer avec diverses institutions clés pour appliquer la data science à des problématiques réelles.
-
-Ce cours est une opportunité unique de partager cette expertise avec vous, et d'explorer ensemble les puissants outils et techniques qui transforment le monde grâce à la data science.
+Ce cours est une opportunité de partager cette expertise avec vous, et d'explorer ensemble les puissants outils et techniques qui transforment le monde grâce à la data science.
 
 ---
 # 🎯 Objectifs de ce cours et déroulement
@@ -28,7 +26,7 @@ Ce cours vise à introduire les principes fondamentaux de la data science et à 
 ### Déroulement du cours
 - **Cours théoriques** : Approche participative avec des échanges et discussions.
 - **Travaux pratiques** : Application des concepts théoriques à des cas concrets.
-- **Contrôle mi-semestre** : Une évaluation des acquis après la première moitié du cours.
+- **Contrôles** : Deux évaluations des acquis seront effectuées au cours de la période des cours.
 - **Examen final** : Un examen qui couvrira l'ensemble des concepts abordés.
 - **Travaux à faire chez soi** : Projets individuels ou en groupe pour renforcer les apprentissages.
 

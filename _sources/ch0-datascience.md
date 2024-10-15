@@ -11,7 +11,7 @@ La **Data Science**, c'est comme être un **détective des données** ! Imaginez
 
 ## 🎯 Définition
 La **Data Science** est un domaine multidisciplinaire combinant :
-- 🧮 **Mathématiques et statistiques** pour modéliser et interpréter les données.
+- 🧮 **Mathématiques et la Statistique** pour modéliser et interpréter les données.
 - 💻 **Informatique** pour organiser, stocker, et traiter efficacement ces données.
 - 🧠 **Connaissances métier** (business, santé, finance, etc.) pour comprendre les besoins et fournir des solutions concrètes.
 
@@ -219,7 +219,7 @@ Améliorer continuellement les performances et la sécurité des véhicules apr�
 
 | **Concept**                | **Nom en anglais**         | **Définition**                                                                                                                                | **Exemples**                                                                                   |
 |----------------------------|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
-| **Science des données**     | Data Science               | Discipline qui combine les statistiques, l'informatique et les connaissances métiers pour extraire des informations utiles à partir de données.  | Analyse des ventes pour optimiser le stock, personnalisation des recommandations (ex. : Netflix). |
+| **Science des données**     | Data Science               | Discipline qui combine la Statistique, l'informatique et les connaissances métiers pour extraire des informations utiles à partir de données.  | Analyse des ventes pour optimiser le stock, personnalisation des recommandations (ex. : Netflix). |
 | **Intelligence artificielle** | Artificial Intelligence (AI) | Domaine de l'informatique visant à créer des machines capables de simuler des comportements humains.                                             | Voitures autonomes, assistants vocaux comme Siri ou Alexa.                                      |
 | **Statistique**             | Statistics                 | Science de la collecte, de l'analyse, de l'interprétation et de la présentation des données.                                                     | Calcul de la moyenne des salaires dans une entreprise, analyse des données d'enquête.            |
 | **Apprentissage automatique** | Machine Learning          | Branche de l'IA où les modèles apprennent à partir de données pour faire des prédictions ou des classifications.                                 | Prédiction des ventes d'un magasin, détection de spams dans les emails.                          |
