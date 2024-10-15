@@ -1,0 +1,1001 @@
+
+<!DOCTYPE html>
+
+
+<html lang="fr" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Qu’est-ce que la Data Science ? 🤔 &#8212; Cours Introduction a la data science</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/translations.js?v=041d0952"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch0-datascience';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Concepts de base" href="ch1-rappel.html" />
+    <link rel="prev" title="🏫 Cours : Introduction à la Data Science" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="fr"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Passer au contenu principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Haut de page</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Cours Introduction a la data science - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Cours Introduction a la data science - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Recherche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    🏫 Cours : Introduction à la Data Science
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Qu’est-ce que la Data Science ? 🤔</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch1-rappel.html">Concepts de base</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Dépôt source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fch0-datascience.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Ouvrez un problème"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Téléchargez cette page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ch0-datascience.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Télécharger le fichier source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimer au format PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Mode plein écran"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Qu’est-ce que la Data Science ? 🤔</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenu </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">🎯 Définition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l-evolution-de-la-data-science">L’évolution de la Data Science 📜</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#les-annees-60-70-les-premiers-pas">Les années 60-70 : Les premiers pas 👴</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#les-annees-2000-l-ere-du-big-data">Les années 2000 : L’ère du Big Data 💾</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-aujourd-hui-la-data-science-devient-star">2010 à aujourd’hui : La Data Science devient star 🌟</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-data-science-en-action-exemples-reels-qui-ont-change-le-jeu">🚀 La Data Science en Action : Exemples Réels qui Ont Changé le Jeu</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sport-liverpool-fc-revolutionne-son-recrutement">1. 🏆 Sport : Liverpool FC révolutionne son recrutement</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#le-defi">🎯 Le défi</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#la-solution-data-driven">💡 La solution data-driven</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resultats-concrets">🏅 Résultats concrets</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#impact-chiffre">💰 Impact chiffré</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sport-kevin-de-bruyne-negocie-son-salaire-grace-a-la-data-science">2. ⚽ Sport : Kevin De Bruyne négocie son salaire grâce à la data science</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🎯 Le défi</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">💡 La solution data-driven</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">🏅 Résultats concrets</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">💰 Impact chiffré</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#un-changement-pour-l-avenir-du-football">⚡ Un changement pour l’avenir du football ?</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#divertissement-netflix-personnalise-l-experience-utilisateur">3. 🎬 Divertissement : Netflix personnalise l’expérience utilisateur</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">🎯 Le défi</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">💡 La solution data-driven</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">🏅 Résultats concrets</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">💰 Impact chiffré</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#technologie-gmail-combat-le-spam">4. 📧 Technologie : Gmail combat le spam</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">🎯 Le défi</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">💡 La solution data-driven</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">🏅 Résultats concrets</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">💰 Impact chiffré</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sante-detection-precoce-du-cancer-du-sein">5. 🏥 Santé : Détection précoce du cancer du sein</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">🎯 Le défi</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">💡 La solution data-driven</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">🏅 Résultats concrets</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">💰 Impact chiffré</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#automobile-tesla-ameliore-ses-vehicules-a-distance">6. 🚗 Automobile : Tesla améliore ses véhicules à distance</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">🎯 Le défi</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">💡 La solution data-driven</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">🏅 Résultats concrets</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">💰 Impact chiffré</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-concepts-cles">🗝️ Les concepts clés</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-boite-a-outils-du-data-scientist">🧰 La boîte à outils du Data Scientist</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langages-de-programmation">💻 Langages de programmation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliotheques-et-frameworks">📚 Bibliothèques et Frameworks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outils-de-visualisation">🖥️ Outils de visualisation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#environnements-de-developpement">⚙️ Environnements de développement</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="qu-est-ce-que-la-data-science">
+<h1>Qu’est-ce que la Data Science ? 🤔<a class="headerlink" href="#qu-est-ce-que-la-data-science" title="Lien vers cette rubrique">#</a></h1>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/data_detective.png"><img alt="Data Detective" class="bg-primary mb-1 align-center" src="_images/data_detective.png" style="width: 400px;" /></a>
+<p>La <strong>Data Science</strong>, c’est comme être un <strong>détective des données</strong> ! Imaginez-vous, avec une loupe géante, examinant des montagnes d’informations pour y trouver des trésors cachés, des vérités enfouies au fond des chiffres.</p>
+<section id="definition">
+<h2>🎯 Définition<a class="headerlink" href="#definition" title="Lien vers cette rubrique">#</a></h2>
+<p>La <strong>Data Science</strong> est un domaine multidisciplinaire combinant :</p>
+<ul class="simple">
+<li><p>🧮 <strong>Mathématiques et statistiques</strong> pour modéliser et interpréter les données.</p></li>
+<li><p>💻 <strong>Informatique</strong> pour organiser, stocker, et traiter efficacement ces données.</p></li>
+<li><p>🧠 <strong>Connaissances métier</strong> (business, santé, finance, etc.) pour comprendre les besoins et fournir des solutions concrètes.</p></li>
+</ul>
+</section>
+<section id="l-evolution-de-la-data-science">
+<h2>L’évolution de la Data Science 📜<a class="headerlink" href="#l-evolution-de-la-data-science" title="Lien vers cette rubrique">#</a></h2>
+<section id="les-annees-60-70-les-premiers-pas">
+<h3>Les années 60-70 : Les premiers pas 👴<a class="headerlink" href="#les-annees-60-70-les-premiers-pas" title="Lien vers cette rubrique">#</a></h3>
+<p>L’essor de l’informatique dans les années 1960 a permis aux premiers statisticiens d’exploiter la puissance des ordinateurs pour traiter des données en masse. Les bases de la data science moderne étaient posées.</p>
+<p><strong>Exemple :</strong> Les premières banques ont commencé à utiliser des modèles statistiques pour prédire les défauts de paiement de leurs clients. Ce qui prenait des mois à calculer manuellement pouvait désormais être fait en quelques heures grâce aux premiers ordinateurs.</p>
+</section>
+<section id="les-annees-2000-l-ere-du-big-data">
+<h3>Les années 2000 : L’ère du Big Data 💾<a class="headerlink" href="#les-annees-2000-l-ere-du-big-data" title="Lien vers cette rubrique">#</a></h3>
+<p>Avec l’explosion d’Internet, les données ont commencé à se multiplier de façon exponentielle. Les entreprises comme <strong>Google</strong> et <strong>Amazon</strong> ont vu l’opportunité d’analyser ces énormes volumes de données pour créer des produits et services révolutionnaires.</p>
+<p><strong>Exemple :</strong> Google a mis en place des algorithmes comme <strong>PageRank</strong>, permettant de classer les pages web en fonction de leur pertinence, changeant ainsi la manière dont les utilisateurs accédaient à l’information en ligne.</p>
+</section>
+<section id="a-aujourd-hui-la-data-science-devient-star">
+<h3>2010 à aujourd’hui : La Data Science devient star 🌟<a class="headerlink" href="#a-aujourd-hui-la-data-science-devient-star" title="Lien vers cette rubrique">#</a></h3>
+<p>Aujourd’hui, la Data Science est omniprésente. Elle propulse des secteurs entiers, de la médecine personnalisée à la conduite autonome. Des entreprises comme <strong>Tesla</strong> ou <strong>Netflix</strong> utilisent des algorithmes de machine learning pour améliorer leurs produits et optimiser l’expérience client.</p>
+<p><strong>Exemple :</strong> <strong>Netflix</strong> utilise la data science pour recommander des séries et des films personnalisés à chaque utilisateur, en analysant ses préférences de visionnage.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="la-data-science-en-action-exemples-reels-qui-ont-change-le-jeu">
+<h2>🚀 La Data Science en Action : Exemples Réels qui Ont Changé le Jeu<a class="headerlink" href="#la-data-science-en-action-exemples-reels-qui-ont-change-le-jeu" title="Lien vers cette rubrique">#</a></h2>
+<section id="sport-liverpool-fc-revolutionne-son-recrutement">
+<h3>1. 🏆 Sport : Liverpool FC révolutionne son recrutement<a class="headerlink" href="#sport-liverpool-fc-revolutionne-son-recrutement" title="Lien vers cette rubrique">#</a></h3>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/liverpool.png"><img alt="Liverpool FC Image" class="bg-primary mb-1 align-center" src="_images/liverpool.png" style="width: 400px;" /></a>
+<section id="le-defi">
+<h4>🎯 Le défi<a class="headerlink" href="#le-defi" title="Lien vers cette rubrique">#</a></h4>
+<p>En 2015, Liverpool FC cherchait à améliorer ses performances sans dépenser des sommes astronomiques en transferts.</p>
+</section>
+<section id="la-solution-data-driven">
+<h4>💡 La solution data-driven<a class="headerlink" href="#la-solution-data-driven" title="Lien vers cette rubrique">#</a></h4>
+<ul class="simple">
+<li><p>Utilisation du système de <strong>« transfert intelligent »</strong> basé sur des analyses statistiques avancées.</p></li>
+<li><p>Collaboration avec Ian Graham, docteur en physique, pour développer des modèles prédictifs sophistiqués.</p></li>
+</ul>
+</section>
+</section>
+<section id="resultats-concrets">
+<h3>🏅 Résultats concrets<a class="headerlink" href="#resultats-concrets" title="Lien vers cette rubrique">#</a></h3>
+<ul class="simple">
+<li><p><strong>Recrutement de Mohamed Salah</strong> en 2017 pour 36,9 millions de livres, basé sur des données. Salah est devenu le meilleur buteur de la Premier League en 2018 avec 32 buts.</p></li>
+<li><p>Liverpool a remporté la <strong>Ligue des Champions</strong> en 2019 et la <strong>Premier League</strong> en 2020.</p></li>
+</ul>
+<section id="impact-chiffre">
+<h4>💰 Impact chiffré<a class="headerlink" href="#impact-chiffre" title="Lien vers cette rubrique">#</a></h4>
+<ul class="simple">
+<li><p>Valeur de Salah multipliée par 3 en une saison.</p></li>
+<li><p>Liverpool a économisé des millions en évitant des transferts basés uniquement sur la réputation.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="sport-kevin-de-bruyne-negocie-son-salaire-grace-a-la-data-science">
+<h3>2. ⚽ Sport : Kevin De Bruyne négocie son salaire grâce à la data science<a class="headerlink" href="#sport-kevin-de-bruyne-negocie-son-salaire-grace-a-la-data-science" title="Lien vers cette rubrique">#</a></h3>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/kevin-de-bruyne-mancity.jpg"><img alt="Kevin De Bruyne Image" class="bg-primary mb-1 align-center" src="_images/kevin-de-bruyne-mancity.jpg" style="width: 400px;" /></a>
+<section id="id1">
+<h4>🎯 Le défi<a class="headerlink" href="#id1" title="Lien vers cette rubrique">#</a></h4>
+<p>En 2021, <strong>Kevin De Bruyne</strong>, l’un des meilleurs milieux de terrain du monde, voulait <strong>renégocier son contrat</strong> avec Manchester City pour obtenir une augmentation de salaire sans faire appel à un agent traditionnel.</p>
+</section>
+<section id="id2">
+<h4>💡 La solution data-driven<a class="headerlink" href="#id2" title="Lien vers cette rubrique">#</a></h4>
+<ul class="simple">
+<li><p>Kevin De Bruyne a fait appel à une <strong>équipe de data scientists</strong> pour <strong>analyser ses performances</strong> sur le terrain par rapport à d’autres joueurs.</p></li>
+<li><p>L’analyse s’est basée sur des <strong>données avancées</strong> telles que :</p>
+<ul>
+<li><p>Nombre de passes décisives.</p></li>
+<li><p>Nombre de kilomètres parcourus par match.</p></li>
+<li><p>Influence dans les phases de jeu.</p></li>
+<li><p>Impact direct sur les victoires de l’équipe.</p></li>
+</ul>
+</li>
+<li><p>En plus de ses performances personnelles, l’équipe de data scientists a analysé <strong>les performances de Manchester City avec et sans lui sur le terrain</strong>, démontrant son importance cruciale pour l’équipe.</p></li>
+<li><p>De plus, ils ont étudié les <strong>contrats de joueurs similaires</strong> dans d’autres équipes pour justifier son augmentation.</p></li>
+</ul>
+</section>
+<section id="id3">
+<h4>🏅 Résultats concrets<a class="headerlink" href="#id3" title="Lien vers cette rubrique">#</a></h4>
+<ul class="simple">
+<li><p>Les données ont démontré que <strong>De Bruyne surpassait largement</strong> plusieurs autres joueurs clés dans des équipes concurrentes, non seulement par ses performances offensives (passes décisives, buts), mais aussi par son rôle dans la construction des actions et son influence globale sur le jeu.</p></li>
+<li><p>La <strong>valeur ajoutée de De Bruyne</strong> pour Manchester City, en termes de victoires et de compétitivité, était nettement supérieure à celle de plusieurs autres milieux de terrain.</p></li>
+<li><p>Grâce à cette approche data-driven, il a pu prouver que son <strong>impact sur l’équipe</strong> méritait une augmentation significative de son salaire.</p></li>
+</ul>
+</section>
+<section id="id4">
+<h4>💰 Impact chiffré<a class="headerlink" href="#id4" title="Lien vers cette rubrique">#</a></h4>
+<ul class="simple">
+<li><p>Kevin De Bruyne a signé une prolongation de contrat de <strong>4 ans</strong>, avec un salaire estimé à <strong>20 millions de livres par an</strong>, ce qui fait de lui l’un des joueurs les mieux payés de Premier League.</p></li>
+<li><p>Il a réussi à négocier ce contrat <strong>sans agent</strong>, en économisant ainsi une somme importante en frais d’agence (généralement environ 10 % de la valeur du contrat).</p></li>
+<li><p>Cet exemple montre comment les joueurs peuvent désormais <strong>prendre leur carrière en main</strong> grâce à la data science, au lieu de se fier uniquement aux agents et aux négociations traditionnelles.</p></li>
+</ul>
+</section>
+<section id="un-changement-pour-l-avenir-du-football">
+<h4>⚡ Un changement pour l’avenir du football ?<a class="headerlink" href="#un-changement-pour-l-avenir-du-football" title="Lien vers cette rubrique">#</a></h4>
+<p>L’utilisation de la data science par les joueurs pour <strong>négocier leurs contrats</strong> pourrait transformer le rôle des agents et les relations entre les clubs et les joueurs.</p>
+<ul class="simple">
+<li><p><strong>Transparence accrue</strong> : Les négociations basées sur des données rendent le processus plus transparent et factuel.</p></li>
+<li><p><strong>Autonomie des joueurs</strong> : Les joueurs peuvent démontrer leur valeur de manière quantifiable, ce qui pourrait inciter davantage de sportifs à suivre l’exemple de De Bruyne.</p></li>
+<li><p><strong>Changement dans les négociations</strong> : Plutôt que de s’appuyer uniquement sur la réputation ou les performances perçues, les clubs devront analyser en profondeur l’impact de chaque joueur à travers des données avancées.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="divertissement-netflix-personnalise-l-experience-utilisateur">
+<h3>3. 🎬 Divertissement : Netflix personnalise l’expérience utilisateur<a class="headerlink" href="#divertissement-netflix-personnalise-l-experience-utilisateur" title="Lien vers cette rubrique">#</a></h3>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/netflix.png"><img alt="Netflix Image" class="bg-primary mb-1 align-center" src="_images/netflix.png" style="width: 400px;" /></a>
+<section id="id5">
+<h4>🎯 Le défi<a class="headerlink" href="#id5" title="Lien vers cette rubrique">#</a></h4>
+<p>Netflix voulait réduire le <strong>taux d’abandon des abonnés</strong> et augmenter le temps passé sur la plateforme.</p>
+</section>
+<section id="id6">
+<h4>💡 La solution data-driven<a class="headerlink" href="#id6" title="Lien vers cette rubrique">#</a></h4>
+<ul class="simple">
+<li><p>Développement d’un algorithme de <strong>recommandation sophistiqué</strong>.</p></li>
+<li><p>Analyse de plus de <strong>30 millions de « plays » par jour</strong> et 4 millions d’évaluations.</p></li>
+</ul>
+</section>
+<section id="id7">
+<h4>🏅 Résultats concrets<a class="headerlink" href="#id7" title="Lien vers cette rubrique">#</a></h4>
+<ul class="simple">
+<li><p><strong>Personnalisation des miniatures</strong> des films/séries selon les préférences de l’utilisateur.</p></li>
+<li><p>Recommandations ultra-ciblées basées sur l’historique de visionnage.</p></li>
+</ul>
+</section>
+<section id="id8">
+<h4>💰 Impact chiffré<a class="headerlink" href="#id8" title="Lien vers cette rubrique">#</a></h4>
+<ul class="simple">
+<li><p><strong>75% des visionnages</strong> proviennent des recommandations.</p></li>
+<li><p>Économie de <strong>1 milliard de dollars par an</strong> grâce à la rétention des abonnés.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="technologie-gmail-combat-le-spam">
+<h3>4. 📧 Technologie : Gmail combat le spam<a class="headerlink" href="#technologie-gmail-combat-le-spam" title="Lien vers cette rubrique">#</a></h3>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/gmail.png"><img alt="Gmail Image" class="bg-primary mb-1 align-center" src="_images/gmail.png" style="width: 400px;" /></a>
+<section id="id9">
+<h4>🎯 Le défi<a class="headerlink" href="#id9" title="Lien vers cette rubrique">#</a></h4>
+<p>Google devait lutter contre le <strong>volume croissant de spam</strong> sans bloquer les emails légitimes.</p>
+</section>
+<section id="id10">
+<h4>💡 La solution data-driven<a class="headerlink" href="#id10" title="Lien vers cette rubrique">#</a></h4>
+<ul class="simple">
+<li><p>Utilisation du <strong>machine learning</strong> pour analyser des milliards d’emails.</p></li>
+<li><p>Mise à jour continue des modèles basée sur les signalements des utilisateurs.</p></li>
+</ul>
+</section>
+<section id="id11">
+<h4>🏅 Résultats concrets<a class="headerlink" href="#id11" title="Lien vers cette rubrique">#</a></h4>
+<ul class="simple">
+<li><p>Détection de <strong>nouvelles formes de spam en temps réel</strong>.</p></li>
+<li><p>Adaptation aux techniques évolutives des spammeurs.</p></li>
+</ul>
+</section>
+<section id="id12">
+<h4>💰 Impact chiffré<a class="headerlink" href="#id12" title="Lien vers cette rubrique">#</a></h4>
+<ul class="simple">
+<li><p><strong>Taux de détection du spam supérieur à 99,9%</strong>.</p></li>
+<li><p>Moins de <strong>0,1% de faux positifs</strong> (emails légitimes marqués comme spam).</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="sante-detection-precoce-du-cancer-du-sein">
+<h3>5. 🏥 Santé : Détection précoce du cancer du sein<a class="headerlink" href="#sante-detection-precoce-du-cancer-du-sein" title="Lien vers cette rubrique">#</a></h3>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/cancer.png"><img alt="Cancer Detection Image" class="bg-primary mb-1 align-center" src="_images/cancer.png" style="width: 400px;" /></a>
+<section id="id13">
+<h4>🎯 Le défi<a class="headerlink" href="#id13" title="Lien vers cette rubrique">#</a></h4>
+<p>Améliorer la précision et la rapidité du dépistage du cancer du sein.</p>
+</section>
+<section id="id14">
+<h4>💡 La solution data-driven<a class="headerlink" href="#id14" title="Lien vers cette rubrique">#</a></h4>
+<ul class="simple">
+<li><p><strong>Google Health</strong> a développé un modèle d’IA analysant les mammographies.</p></li>
+<li><p>Entraînement sur des dizaines de milliers d’images médicales.</p></li>
+</ul>
+</section>
+<section id="id15">
+<h4>🏅 Résultats concrets<a class="headerlink" href="#id15" title="Lien vers cette rubrique">#</a></h4>
+<ul class="simple">
+<li><p>Le modèle surpasse les radiologues humains en termes de précision.</p></li>
+<li><p>Réduction significative des <strong>faux positifs</strong> et <strong>faux négatifs</strong>.</p></li>
+</ul>
+</section>
+<section id="id16">
+<h4>💰 Impact chiffré<a class="headerlink" href="#id16" title="Lien vers cette rubrique">#</a></h4>
+<ul class="simple">
+<li><p>Réduction de <strong>5,7% des faux positifs</strong> et de <strong>9,4% des faux négatifs</strong> par rapport aux radiologues.</p></li>
+<li><p>Potentiel de sauver des milliers de vies grâce à une détection plus précoce.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="automobile-tesla-ameliore-ses-vehicules-a-distance">
+<h3>6. 🚗 Automobile : Tesla améliore ses véhicules à distance<a class="headerlink" href="#automobile-tesla-ameliore-ses-vehicules-a-distance" title="Lien vers cette rubrique">#</a></h3>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/tesla.png"><img alt="Tesla Image" class="bg-primary mb-1 align-center" src="_images/tesla.png" style="width: 400px;" /></a>
+<section id="id17">
+<h4>🎯 Le défi<a class="headerlink" href="#id17" title="Lien vers cette rubrique">#</a></h4>
+<p>Améliorer continuellement les performances et la sécurité des véhicules après leur vente.</p>
+</section>
+<section id="id18">
+<h4>💡 La solution data-driven<a class="headerlink" href="#id18" title="Lien vers cette rubrique">#</a></h4>
+<ul class="simple">
+<li><p><strong>Collecte de données en temps réel</strong> à partir de la flotte de véhicules Tesla.</p></li>
+<li><p>Utilisation du machine learning pour analyser les comportements de conduite.</p></li>
+</ul>
+</section>
+<section id="id19">
+<h4>🏅 Résultats concrets<a class="headerlink" href="#id19" title="Lien vers cette rubrique">#</a></h4>
+<ul class="simple">
+<li><p>Mises à jour logicielles à distance (<strong>OTA</strong>) basées sur l’analyse des données.</p></li>
+<li><p>Amélioration continue de l”<strong>Autopilot</strong> (conduite autonome).</p></li>
+</ul>
+</section>
+<section id="id20">
+<h4>💰 Impact chiffré<a class="headerlink" href="#id20" title="Lien vers cette rubrique">#</a></h4>
+<ul class="simple">
+<li><p>Réduction de <strong>40% des accidents</strong> lorsque l’Autopilot est activé.</p></li>
+<li><p>Augmentation de l’autonomie des batteries jusqu’à <strong>15%</strong> sans modification matérielle.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="les-concepts-cles">
+<h2>🗝️ Les concepts clés<a class="headerlink" href="#les-concepts-cles" title="Lien vers cette rubrique">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Concept</strong></p></th>
+<th class="head"><p><strong>Nom en anglais</strong></p></th>
+<th class="head"><p><strong>Définition</strong></p></th>
+<th class="head"><p><strong>Exemples</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Science des données</strong></p></td>
+<td><p>Data Science</p></td>
+<td><p>Discipline qui combine les statistiques, l’informatique et les connaissances métiers pour extraire des informations utiles à partir de données.</p></td>
+<td><p>Analyse des ventes pour optimiser le stock, personnalisation des recommandations (ex. : Netflix).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Intelligence artificielle</strong></p></td>
+<td><p>Artificial Intelligence (AI)</p></td>
+<td><p>Domaine de l’informatique visant à créer des machines capables de simuler des comportements humains.</p></td>
+<td><p>Voitures autonomes, assistants vocaux comme Siri ou Alexa.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Statistique</strong></p></td>
+<td><p>Statistics</p></td>
+<td><p>Science de la collecte, de l’analyse, de l’interprétation et de la présentation des données.</p></td>
+<td><p>Calcul de la moyenne des salaires dans une entreprise, analyse des données d’enquête.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Apprentissage automatique</strong></p></td>
+<td><p>Machine Learning</p></td>
+<td><p>Branche de l’IA où les modèles apprennent à partir de données pour faire des prédictions ou des classifications.</p></td>
+<td><p>Prédiction des ventes d’un magasin, détection de spams dans les emails.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Apprentissage profond</strong></p></td>
+<td><p>Deep Learning</p></td>
+<td><p>Sous-branche du machine learning utilisant des réseaux neuronaux à plusieurs couches pour traiter des volumes massifs de données complexes.</p></td>
+<td><p>Reconnaissance d’images, analyse de texte, traduction automatique.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Apprentissage supervisé</strong></p></td>
+<td><p>Supervised Learning</p></td>
+<td><p>Type de machine learning où le modèle apprend à partir de données étiquetées pour prédire un résultat futur.</p></td>
+<td><p>Prédiction des prix immobiliers en fonction de la localisation et de la taille du bien.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Apprentissage non supervisé</strong></p></td>
+<td><p>Unsupervised Learning</p></td>
+<td><p>Type de machine learning où le modèle trouve des schémas cachés dans des données non étiquetées.</p></td>
+<td><p>Clustering de clients selon leurs habitudes d’achat.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Réseaux neuronaux</strong></p></td>
+<td><p>Neural Networks</p></td>
+<td><p>Modèles d’apprentissage inspirés du cerveau humain, utilisés pour résoudre des problèmes complexes.</p></td>
+<td><p>Reconnaissance d’images, traitement du langage naturel.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Régression</strong></p></td>
+<td><p>Regression</p></td>
+<td><p>Technique statistique qui modélise la relation entre une variable dépendante et des variables indépendantes.</p></td>
+<td><p>Prédiction du prix d’une voiture en fonction du kilométrage et de l’âge.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Clustering</strong></p></td>
+<td><p>Clustering</p></td>
+<td><p>Technique pour regrouper des données similaires en groupes sans étiquettes prédéfinies.</p></td>
+<td><p>Segmentation de clients en fonction de leurs comportements d’achat.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Visualisation des données</strong></p></td>
+<td><p>Data Visualization</p></td>
+<td><p>Représentation graphique des données pour faciliter l’interprétation et la communication des résultats.</p></td>
+<td><p>Graphiques à barres pour les ventes, diagrammes circulaires pour la répartition des clients.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Big Data</strong></p></td>
+<td><p>Big Data</p></td>
+<td><p>Ensemble de données volumineux et complexes nécessitant des technologies spécifiques pour être stocké et analysé.</p></td>
+<td><p>Analyse de milliards de transactions de clients sur des sites e-commerce.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Modèles de classification</strong></p></td>
+<td><p>Classification Models</p></td>
+<td><p>Algorithmes qui prédisent des catégories à partir des données, comme la classification binaire ou multi-classes.</p></td>
+<td><p>Classification des emails en « spam » ou « non-spam ».</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="la-boite-a-outils-du-data-scientist">
+<h2>🧰 La boîte à outils du Data Scientist<a class="headerlink" href="#la-boite-a-outils-du-data-scientist" title="Lien vers cette rubrique">#</a></h2>
+<section id="langages-de-programmation">
+<h3>💻 Langages de programmation<a class="headerlink" href="#langages-de-programmation" title="Lien vers cette rubrique">#</a></h3>
+<ul class="simple">
+<li><p><strong>Python</strong> 🐍 : Le couteau suisse du Data Scientist, largement utilisé pour son accessibilité et sa riche collection de bibliothèques pour la data science.</p>
+<ul>
+<li><p><strong>Exemple</strong> : Utiliser Python pour analyser des données de ventes et prédire des tendances futures.</p></li>
+</ul>
+</li>
+<li><p><strong>R</strong> 📊 : Le choix des statisticiens, très populaire pour les analyses statistiques et la visualisation de données.</p>
+<ul>
+<li><p><strong>Exemple</strong> : Utiliser R pour créer des graphiques détaillés montrant les corrélations entre des variables économiques.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="bibliotheques-et-frameworks">
+<h3>📚 Bibliothèques et Frameworks<a class="headerlink" href="#bibliotheques-et-frameworks" title="Lien vers cette rubrique">#</a></h3>
+<ul class="simple">
+<li><p><strong>pandas</strong> 🐼 : La bibliothèque favorite pour manipuler des données sous forme de tableaux.</p>
+<ul>
+<li><p><strong>Exemple</strong> : Nettoyer et transformer un ensemble de données avant de l’analyser.</p></li>
+</ul>
+</li>
+<li><p><strong>scikit-learn</strong> 🔬 : L’outil de référence pour créer des modèles de machine learning en Python.</p>
+<ul>
+<li><p><strong>Exemple</strong> : Construire un modèle de classification pour prédire si un client abandonnera son panier d’achat en ligne.</p></li>
+</ul>
+</li>
+<li><p><strong>Matplotlib</strong> et <strong>Seaborn</strong> 🎨 : Les bibliothèques indispensables pour créer des visualisations graphiques en Python.</p>
+<ul>
+<li><p><strong>Exemple</strong> : Créer des graphiques pour visualiser la répartition géographique des ventes d’un produit.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="outils-de-visualisation">
+<h3>🖥️ Outils de visualisation<a class="headerlink" href="#outils-de-visualisation" title="Lien vers cette rubrique">#</a></h3>
+<ul class="simple">
+<li><p><strong>Tableau</strong> : Un outil de visualisation professionnelle qui permet de créer des tableaux de bord interactifs et visuels.</p></li>
+<li><p><strong>Power BI</strong> : L’outil de visualisation de Microsoft pour des analyses commerciales et des rapports interactifs.</p></li>
+<li><p><strong>Google Looker Studio</strong> : Une solution gratuite pour créer des rapports de données directement dans le cloud.</p></li>
+</ul>
+</section>
+<section id="environnements-de-developpement">
+<h3>⚙️ Environnements de développement<a class="headerlink" href="#environnements-de-developpement" title="Lien vers cette rubrique">#</a></h3>
+<ul class="simple">
+<li><p><strong>Jupyter Notebook</strong> : Un environnement interactif où vous pouvez écrire et exécuter du code, ajouter des explications textuelles, et visualiser les résultats, le tout dans un seul document.</p></li>
+<li><p><strong>Google Colab</strong> : Comme Jupyter, mais hébergé dans le cloud, facilitant la collaboration et l’exécution sur des machines puissantes.</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="page précédente">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">précédent</p>
+        <p class="prev-next-title">🏫 Cours : Introduction à la Data Science</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ch1-rappel.html"
+       title="page suivante">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title">Concepts de base</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenu
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">🎯 Définition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#l-evolution-de-la-data-science">L’évolution de la Data Science 📜</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#les-annees-60-70-les-premiers-pas">Les années 60-70 : Les premiers pas 👴</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#les-annees-2000-l-ere-du-big-data">Les années 2000 : L’ère du Big Data 💾</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-aujourd-hui-la-data-science-devient-star">2010 à aujourd’hui : La Data Science devient star 🌟</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-data-science-en-action-exemples-reels-qui-ont-change-le-jeu">🚀 La Data Science en Action : Exemples Réels qui Ont Changé le Jeu</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sport-liverpool-fc-revolutionne-son-recrutement">1. 🏆 Sport : Liverpool FC révolutionne son recrutement</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#le-defi">🎯 Le défi</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#la-solution-data-driven">💡 La solution data-driven</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resultats-concrets">🏅 Résultats concrets</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#impact-chiffre">💰 Impact chiffré</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sport-kevin-de-bruyne-negocie-son-salaire-grace-a-la-data-science">2. ⚽ Sport : Kevin De Bruyne négocie son salaire grâce à la data science</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🎯 Le défi</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">💡 La solution data-driven</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">🏅 Résultats concrets</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">💰 Impact chiffré</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#un-changement-pour-l-avenir-du-football">⚡ Un changement pour l’avenir du football ?</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#divertissement-netflix-personnalise-l-experience-utilisateur">3. 🎬 Divertissement : Netflix personnalise l’expérience utilisateur</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">🎯 Le défi</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">💡 La solution data-driven</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">🏅 Résultats concrets</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">💰 Impact chiffré</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#technologie-gmail-combat-le-spam">4. 📧 Technologie : Gmail combat le spam</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">🎯 Le défi</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">💡 La solution data-driven</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">🏅 Résultats concrets</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">💰 Impact chiffré</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sante-detection-precoce-du-cancer-du-sein">5. 🏥 Santé : Détection précoce du cancer du sein</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">🎯 Le défi</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">💡 La solution data-driven</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">🏅 Résultats concrets</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">💰 Impact chiffré</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#automobile-tesla-ameliore-ses-vehicules-a-distance">6. 🚗 Automobile : Tesla améliore ses véhicules à distance</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">🎯 Le défi</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">💡 La solution data-driven</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">🏅 Résultats concrets</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">💰 Impact chiffré</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-concepts-cles">🗝️ Les concepts clés</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-boite-a-outils-du-data-scientist">🧰 La boîte à outils du Data Scientist</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langages-de-programmation">💻 Langages de programmation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliotheques-et-frameworks">📚 Bibliothèques et Frameworks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outils-de-visualisation">🖥️ Outils de visualisation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#environnements-de-developpement">⚙️ Environnements de développement</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Par Iaousse M'barek
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
