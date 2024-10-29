@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>🏫 Cours : Introduction à la Data Science &#8212; Cours Introduction a la data science</title>
+    <title>Le processus de Data Science &#8212; Cours Introduction a la data science</title>
   
   
   
@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -61,10 +61,9 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{\\left|#1\\right|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Im": "\\operatorname{Im}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}", "bone": "\\unicode{x1D7D9}", "Re": "\\mathrm{Re}", "Um": "\\operatorname{Um}", "Res": "\\operatorname{Res}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'workflow1';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
-    <link rel="next" title="Qu’est-ce que la Data Science ? 🤔" href="ch0-datascience.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
   </head>
@@ -147,7 +146,7 @@
     
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="intro.html">
   
   
   
@@ -178,8 +177,8 @@
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
                     🏫 Cours : Introduction à la Data Science
                 </a>
             </li>
@@ -261,7 +260,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fworkflow1.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Ouvrez un problème"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -291,7 +290,7 @@
       
       
       
-      <li><a href="_sources/intro.md" target="_blank"
+      <li><a href="_sources/workflow1.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Télécharger le fichier source"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -375,7 +374,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>🏫 Cours : Introduction à la Data Science</h1>
+    <h1>Le processus de Data Science</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -385,16 +384,22 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">🏫 Cours : Introduction à la Data Science</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#professeur-iaousse-m-barek">👨‍🏫 Professeur : <strong>IAOUSSE M’barek</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-du-probleme">Définition du problème</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identifier-clairement-lobjectif-du-projet">Identifier clairement l’objectif du projet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#determiner-les-questions-auxquelles-on-veut-repondre">Déterminer les questions auxquelles on veut répondre</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#objectifs-de-ce-cours-et-deroulement">🎯 Objectifs de ce cours et déroulement</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deroulement-du-cours">Déroulement du cours</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collecte-des-donnees">Collecte des données</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identifier-les-sources-de-donnees-pertinentes">Identifier les sources de données pertinentes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rassembler-les-donnees-necessaires">Rassembler les données nécessaires</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nettoyage-et-preparation-des-donnees">Nettoyage et préparation des données</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#traiter-les-donnees-manquantes-ou-incorrectes">Traiter les données manquantes ou incorrectes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formater-les-donnees-pour-lanalyse">Formater les données pour l’analyse</a></li>
 </ul>
 </li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -405,83 +410,166 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="cours-introduction-a-la-data-science">
-<h1>🏫 Cours : Introduction à la Data Science<a class="headerlink" href="#cours-introduction-a-la-data-science" title="Lien vers cette rubrique">#</a></h1>
-<section id="professeur-iaousse-m-barek">
-<h2>👨‍🏫 Professeur : <strong>IAOUSSE M’barek</strong><a class="headerlink" href="#professeur-iaousse-m-barek" title="Lien vers cette rubrique">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="le-processus-de-data-science">
+<h1>Le processus de Data Science<a class="headerlink" href="#le-processus-de-data-science" title="Lien vers cette rubrique">#</a></h1>
+<p>Le processus en science des données suit une série d’étapes, chacune étant conçue pour assurer la qualité et la fiabilité des résultats finaux. La clarté des objectifs, la rigueur dans la collecte et la préparation des données, ainsi qu’une analyse soignée garantissent le succès d’un projet. Chacune de ces étapes est détaillée ci-dessous.</p>
+<hr class="docutils" />
+<section id="definition-du-probleme">
+<h2>Définition du problème<a class="headerlink" href="#definition-du-probleme" title="Lien vers cette rubrique">#</a></h2>
+<p>Définir le problème avec précision est crucial, car un problème mal défini risque de conduire à des analyses inutiles ou erronées. Cette étape permet d’orienter le travail vers un objectif clair, en évitant les dérives. Il ne suffit pas de vouloir « analyser des données » : il faut savoir <strong>ce que l’on veut accomplir</strong>, pourquoi cela est important, et comment les résultats seront utilisés.</p>
+<p>Il est également fondamental de bien comprendre le <strong>contexte métier</strong>. La manière dont un problème est formulé diffère selon le secteur. Par exemple, une entreprise de marketing pourrait chercher à améliorer les taux de conversion, tandis qu’un hôpital pourrait vouloir optimiser les soins à partir des dossiers patients.</p>
+<hr class="docutils" />
+<section id="identifier-clairement-lobjectif-du-projet">
+<h3>Identifier clairement l’objectif du projet<a class="headerlink" href="#identifier-clairement-lobjectif-du-projet" title="Lien vers cette rubrique">#</a></h3>
+<p>Chaque projet doit se concentrer sur un ou plusieurs objectifs bien définis. Un objectif clair permet de guider l’analyse et d’éviter de perdre du temps à explorer des pistes non pertinentes. Il aide aussi à fixer des métriques de performance précises, comme le taux de churn ou la précision d’un modèle prédictif.</p>
+<div class="admonition-exemple-objectif-dun-projet-danalyse-des-ventes admonition">
+<p class="admonition-title">Exemple : Objectif d’un projet d’analyse des ventes</p>
+<p>Le but est de prédire les produits les plus vendus pendant la période de Noël. Cela permettra à l’équipe de logistique d’optimiser le stock et d’éviter des ruptures pendant cette période critique.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="determiner-les-questions-auxquelles-on-veut-repondre">
+<h3>Déterminer les questions auxquelles on veut répondre<a class="headerlink" href="#determiner-les-questions-auxquelles-on-veut-repondre" title="Lien vers cette rubrique">#</a></h3>
+<p>Définir les bonnes questions à poser est tout aussi important que l’objectif. Ces questions orienteront la sélection des données et des outils d’analyse à utiliser. En répondant à ces questions, le scientifique des données peut s’assurer que l’analyse produira un impact mesurable et utile.</p>
+<div class="admonition-exemple-questions-pour-predire-le-churn admonition">
+<p class="admonition-title">Exemple : Questions pour prédire le churn</p>
+<ol class="arabic simple">
+<li><p>Quels sont les facteurs qui influencent le désabonnement des clients ?</p></li>
+<li><p>Les clients avec une faible activité récente sont-ils plus susceptibles de partir ?</p></li>
+<li><p>Y a-t-il une corrélation entre le type de produit acheté et le taux de churn ?</p></li>
+</ol>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="collecte-des-donnees">
+<h2>Collecte des données<a class="headerlink" href="#collecte-des-donnees" title="Lien vers cette rubrique">#</a></h2>
+<p>L’analyse de données ne peut se faire qu’à partir de <strong>données pertinentes et de bonne qualité</strong>. Il est essentiel d’identifier les sources les plus adaptées en fonction de l’objectif du projet. La qualité des résultats dépend largement de la qualité des données collectées.</p>
+<section id="identifier-les-sources-de-donnees-pertinentes">
+<h3>Identifier les sources de données pertinentes<a class="headerlink" href="#identifier-les-sources-de-donnees-pertinentes" title="Lien vers cette rubrique">#</a></h3>
+<p>Les sources peuvent être internes (systèmes d’information de l’entreprise) ou externes (open data, réseaux sociaux, APIs). Identifier la source correcte permet d’assurer que les données collectées répondent aux besoins spécifiques du projet.</p>
+<div class="admonition-exemple-sources-pour-une-analyse-de-comportement-dachat admonition">
+<p class="admonition-title">Exemple : Sources pour une analyse de comportement d’achat</p>
+<ol class="arabic simple">
+<li><p>Données de transactions provenant du site e-commerce.</p></li>
+<li><p>Informations sur les visites de clients dans les magasins physiques.</p></li>
+<li><p>Réseaux sociaux pour analyser les avis des consommateurs.</p></li>
+</ol>
+</div>
+</section>
+<section id="rassembler-les-donnees-necessaires">
+<h3>Rassembler les données nécessaires<a class="headerlink" href="#rassembler-les-donnees-necessaires" title="Lien vers cette rubrique">#</a></h3>
+<p>Une fois les sources identifiées, il faut <strong>intégrer les données</strong> en un format exploitable. Cette étape est cruciale, surtout si les données proviennent de plusieurs systèmes ou formats. Il peut être nécessaire d’écrire des scripts pour collecter des données automatiquement via des APIs ou d’accéder à des bases SQL pour extraire des informations.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="nettoyage-et-preparation-des-donnees">
+<h2>Nettoyage et préparation des données<a class="headerlink" href="#nettoyage-et-preparation-des-donnees" title="Lien vers cette rubrique">#</a></h2>
+<p>Les données collectées sont souvent imparfaites, avec des <strong>valeurs manquantes, des doublons ou des erreurs</strong>. Le nettoyage garantit que les analyses seront fiables et non biaisées par des données incorrectes ou incomplètes.</p>
+<section id="traiter-les-donnees-manquantes-ou-incorrectes">
+<h3>Traiter les données manquantes ou incorrectes<a class="headerlink" href="#traiter-les-donnees-manquantes-ou-incorrectes" title="Lien vers cette rubrique">#</a></h3>
+<p>Les <strong>valeurs manquantes</strong> sont courantes dans les bases de données : certaines informations peuvent être mal saisies, oubliées, ou indisponibles. Laisser ces valeurs non traitées peut biaiser les résultats ou même empêcher certains algorithmes de fonctionner. Plusieurs stratégies sont possibles :</p>
+<ol class="arabic simple">
+<li><p><strong>Suppression</strong> : Si peu de lignes sont affectées, il est parfois préférable de supprimer ces lignes.</p></li>
+<li><p><strong>Imputation</strong> : Remplacement des valeurs manquantes par une estimation (comme la moyenne ou la médiane). L’imputation réduit la perte d’informations mais peut introduire un biais.</p></li>
+</ol>
+<p>Il est important de choisir la méthode en fonction du contexte. Par exemple, remplacer toutes les valeurs manquantes par la moyenne peut fausser des tendances si les données sont très dispersées.</p>
+<div class="admonition-exemple-traitement-des-donnees-manquantes admonition">
+<p class="admonition-title">Exemple : Traitement des données manquantes</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p><strong>Titre</strong></p></th>
-<th class="head"><p><strong>Institution</strong></p></th>
-<th class="head"><p><strong>Année</strong></p></th>
+<tr class="row-odd"><th class="head"><p>Client_ID</p></th>
+<th class="head"><p>Date d’achat</p></th>
+<th class="head"><p>Montant (€)</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Ingénieur d’État en Statistique et Démographie</p></td>
-<td><p>Institut National de Statistique et d’Économie Appliquée</p></td>
-<td><p>2015</p></td>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>2023-10-01</p></td>
+<td><p>150</p></td>
 </tr>
-<tr class="row-odd"><td><p>Doctorat en méthodes statistiques et analyse de données</p></td>
-<td><p>Université Ibn Tofail</p></td>
-<td><p>2021</p></td>
-</tr>
-<tr class="row-even"><td><p>Cadre</p></td>
-<td><p>Conseil National du Commerce Extérieur</p></td>
-<td><p>2016-2018</p></td>
-</tr>
-<tr class="row-odd"><td><p>Cadre</p></td>
-<td><p>Ministère de l’Industrie et du Commerce</p></td>
-<td><p>2018-2021</p></td>
-</tr>
-<tr class="row-even"><td><p>Expert en Data Analysis</p></td>
-<td><p>Modal Learning</p></td>
-<td><p>2021</p></td>
-</tr>
-<tr class="row-odd"><td><p>Expert en Data Analysis</p></td>
-<td><p>Global for Survey &amp; Isipinioning, travaillant sur l’Enquête Nationale du Développement Humain (INDH &amp; ONDH)</p></td>
-<td><p>2024</p></td>
-</tr>
-<tr class="row-even"><td><p>Professeur permanent</p></td>
-<td><p>École Supérieure de Technologie de Casablanca</p></td>
+<tr class="row-odd"><td><p>2</p></td>
 <td><p></p></td>
+<td><p>200</p></td>
 </tr>
-<tr class="row-odd"><td><p>Professeur vacataire</p></td>
-<td><p>Faculté des Sciences de Kénitra</p></td>
-<td><p>2019-2021</p></td>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>2023-09-15</p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>Ce cours est une opportunité de partager cette expertise avec vous, et d’explorer ensemble les puissants outils et techniques qui transforment le monde grâce à la data science.</p>
-</section>
-</section>
-<hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="objectifs-de-ce-cours-et-deroulement">
-<h1>🎯 Objectifs de ce cours et déroulement<a class="headerlink" href="#objectifs-de-ce-cours-et-deroulement" title="Lien vers cette rubrique">#</a></h1>
-<p>Ce cours vise à introduire les principes fondamentaux de la data science et à offrir aux étudiants une compréhension solide de ses applications dans divers secteurs. Les objectifs principaux incluent :</p>
 <ul class="simple">
-<li><p>Comprendre les concepts clés de la data science.</p></li>
-<li><p>Apprendre à identifier et à utiliser les outils nécessaires pour mener des analyses de données.</p></li>
-<li><p>Explorer des exemples concrets où la data science a transformé des industries.</p></li>
-</ul>
-<section id="deroulement-du-cours">
-<h2>Déroulement du cours<a class="headerlink" href="#deroulement-du-cours" title="Lien vers cette rubrique">#</a></h2>
-<ul class="simple">
-<li><p><strong>Cours théoriques</strong> : Approche participative avec des échanges et discussions.</p></li>
-<li><p><strong>Travaux pratiques</strong> : Application des concepts théoriques à des cas concrets.</p></li>
-<li><p><strong>Contrôles</strong> : Deux évaluations des acquis seront effectuées au cours de la période des cours.</p></li>
-<li><p><strong>Examen final</strong> : Un examen qui couvrira l’ensemble des concepts abordés.</p></li>
-<li><p><strong>Travaux à faire chez soi</strong> : Projets individuels ou en groupe pour renforcer les apprentissages.</p></li>
-</ul>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ch0-datascience.html">Qu’est-ce que la Data Science ? 🤔</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch1-rappel.html">Concepts de base</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Pratique1.html">Premiers pas en Python pour la science des données</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workflow.html">Le processus de Data Science</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Pandas.html">Pratique 1 : Analyse avec pandas</a></li>
+<li><p><strong>Imputer la date manquante</strong> avec la date moyenne des achats précédents.</p></li>
+<li><p><strong>Remplacer le montant manquant</strong> par la médiane des transactions similaires.</p></li>
 </ul>
 </div>
+</section>
+<section id="formater-les-donnees-pour-lanalyse">
+<h3>Formater les données pour l’analyse<a class="headerlink" href="#formater-les-donnees-pour-lanalyse" title="Lien vers cette rubrique">#</a></h3>
+<p>Avant l’analyse, les données doivent être <strong>normalisées et mises en forme</strong>. Cela implique souvent :</p>
+<ul class="simple">
+<li><p><strong>Conversion des types de données</strong> : Par exemple, transformer des dates en objets datetime pour faciliter l’analyse chronologique.</p></li>
+<li><p><strong>Normalisation des valeurs</strong> : Mettre les variables sur la même échelle pour que certaines variables ne dominent pas les autres dans les modèles. Cela est particulièrement important pour les algorithmes sensibles aux échelles, comme les k-means ou les régressions logistiques.</p></li>
+</ul>
+<p>La <strong>normalisation</strong> consiste généralement à ramener les valeurs dans une plage [0,1] ou à les centrer autour de la moyenne avec un écart-type de 1. Cela permet d’éviter que des variables ayant des unités différentes (par exemple, euros et kilomètres) influencent de manière disproportionnée les résultats.</p>
+<div class="admonition-exemple-normalisation-dune-variable admonition">
+<p class="admonition-title">Exemple : Normalisation d’une variable</p>
+<p>Supposons un ensemble de données contenant des informations sur le prix et le poids d’articles.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Produit</p></th>
+<th class="head"><p>Prix (€)</p></th>
+<th class="head"><p>Poids (kg)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>A</p></td>
+<td><p>100</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>B</p></td>
+<td><p>250</p></td>
+<td><p>2.5</p></td>
+</tr>
+<tr class="row-even"><td><p>C</p></td>
+<td><p>300</p></td>
+<td><p>3</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Après normalisation :</p>
+<ul class="simple">
+<li><p>Prix : <span class="math notranslate nohighlight">\( (x - \mu) / \sigma \)</span></p></li>
+<li><p>Poids : <span class="math notranslate nohighlight">\( (x - \mu) / \sigma \)</span></p></li>
+</ul>
+<p>Résultat :</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Produit</p></th>
+<th class="head"><p>Prix normalisé</p></th>
+<th class="head"><p>Poids normalisé</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>A</p></td>
+<td><p>-1.14</p></td>
+<td><p>-1.22</p></td>
+</tr>
+<tr class="row-odd"><td><p>B</p></td>
+<td><p>0.57</p></td>
+<td><p>0.00</p></td>
+</tr>
+<tr class="row-even"><td><p>C</p></td>
+<td><p>0.57</p></td>
+<td><p>1.22</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
 </section>
 </section>
 
@@ -515,15 +603,6 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="right-next"
-       href="ch0-datascience.html"
-       title="page suivante">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title">Qu’est-ce que la Data Science ? 🤔</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -540,16 +619,22 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">🏫 Cours : Introduction à la Data Science</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#professeur-iaousse-m-barek">👨‍🏫 Professeur : <strong>IAOUSSE M’barek</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-du-probleme">Définition du problème</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identifier-clairement-lobjectif-du-projet">Identifier clairement l’objectif du projet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#determiner-les-questions-auxquelles-on-veut-repondre">Déterminer les questions auxquelles on veut répondre</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#objectifs-de-ce-cours-et-deroulement">🎯 Objectifs de ce cours et déroulement</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deroulement-du-cours">Déroulement du cours</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collecte-des-donnees">Collecte des données</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identifier-les-sources-de-donnees-pertinentes">Identifier les sources de données pertinentes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rassembler-les-donnees-necessaires">Rassembler les données nécessaires</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nettoyage-et-preparation-des-donnees">Nettoyage et préparation des données</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#traiter-les-donnees-manquantes-ou-incorrectes">Traiter les données manquantes ou incorrectes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formater-les-donnees-pour-lanalyse">Formater les données pour l’analyse</a></li>
 </ul>
 </li>
 </ul>
-
   </nav></div>
 
 </div></div>

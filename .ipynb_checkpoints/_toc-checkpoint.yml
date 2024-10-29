@@ -6,4 +6,7 @@ root: intro
 chapters:
 - file: ch0-datascience
 - file: ch1-rappel
+- file: Pratique1
+- file: workflow
+- file: Pandas
 

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Introduction à la Data Science : Concepts de base &#8212; Cours Introduction a la data science</title>
+    <title>Premier chapitre &#8212; Cours Introduction a la data science</title>
   
   
   
@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -59,7 +59,7 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'introduction-data-science';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Untitled';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -184,6 +184,9 @@
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="ch0-datascience.html">Qu’est-ce que la Data Science ? 🤔</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch1-rappel.html">Concepts de base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Pratique1.html">Premiers pas en Python pour la science des données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Le processus de Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Pandas.html">Pratique 1 : Analyse avec pandas</a></li>
 </ul>
 
     </div>
@@ -255,7 +258,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fintroduction-data-science.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FUntitled.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Ouvrez un problème"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -285,7 +288,7 @@
       
       
       
-      <li><a href="_sources/introduction-data-science.md" target="_blank"
+      <li><a href="_sources/Untitled.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Télécharger le fichier source"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -295,7 +298,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -356,9 +359,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -369,24 +370,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Introduction à la Data Science : Concepts de base</h1>
+    <h1>Premier chapitre</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contenu </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qu-est-ce-que-la-data-science">1. Qu’est-ce que la Data Science ?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#le-processus-de-data-science">2. Le processus de Data Science</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-de-donnees-en-data-science">3. Types de données en Data Science</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistique-descriptive-pour-la-data-science">4. Statistique descriptive pour la Data Science</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-de-l-exploration-des-donnees">5. Importance de l’exploration des données</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -396,154 +384,21 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="introduction-a-la-data-science-concepts-de-base">
-<h1>Introduction à la Data Science : Concepts de base<a class="headerlink" href="#introduction-a-la-data-science-concepts-de-base" title="Lien vers cette rubrique">#</a></h1>
-<section id="qu-est-ce-que-la-data-science">
-<h2>1. Qu’est-ce que la Data Science ?<a class="headerlink" href="#qu-est-ce-que-la-data-science" title="Lien vers cette rubrique">#</a></h2>
-<p>La data science est un domaine interdisciplinaire qui utilise des méthodes scientifiques, des processus, des algorithmes et des systèmes pour extraire des connaissances et des insights à partir de données structurées et non structurées.</p>
-</section>
-<section id="le-processus-de-data-science">
-<h2>2. Le processus de Data Science<a class="headerlink" href="#le-processus-de-data-science" title="Lien vers cette rubrique">#</a></h2>
-<p>Le processus de data science suit généralement ces étapes :</p>
-<div class="toggle docutils container">
-<ol class="arabic simple">
-<li><p><strong>Définition du problème</strong></p>
-<ul class="simple">
-<li><p>Identifier clairement l’objectif du projet</p></li>
-<li><p>Déterminer les questions auxquelles on veut répondre</p></li>
-</ul>
-</li>
-<li><p><strong>Collecte des données</strong></p>
-<ul class="simple">
-<li><p>Identifier les sources de données pertinentes</p></li>
-<li><p>Rassembler les données nécessaires</p></li>
-</ul>
-</li>
-<li><p><strong>Nettoyage et préparation des données</strong></p>
-<ul class="simple">
-<li><p>Traiter les données manquantes ou incorrectes</p></li>
-<li><p>Formater les données pour l’analyse</p></li>
-</ul>
-</li>
-<li><p><strong>Exploration et visualisation des données</strong></p>
-<ul class="simple">
-<li><p>Analyser les caractéristiques de base des données</p></li>
-<li><p>Créer des graphiques pour mieux comprendre les données</p></li>
-</ul>
-</li>
-<li><p><strong>Analyse et modélisation</strong></p>
-<ul class="simple">
-<li><p>Appliquer des techniques statistiques ou d’apprentissage automatique</p></li>
-<li><p>Interpréter les résultats</p></li>
-</ul>
-</li>
-<li><p><strong>Communication des résultats</strong></p>
-<ul class="simple">
-<li><p>Présenter les découvertes de manière claire et compréhensible</p></li>
-<li><p>Formuler des recommandations basées sur l’analyse</p></li>
-</ul>
-</li>
-</ol>
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+</pre></div>
 </div>
-</section>
-<section id="types-de-donnees-en-data-science">
-<h2>3. Types de données en Data Science<a class="headerlink" href="#types-de-donnees-en-data-science" title="Lien vers cette rubrique">#</a></h2>
-<p>Comprendre les types de données est crucial en data science :</p>
-<div class="toggle docutils container">
-<p><strong>Données structurées</strong></p>
-<ul class="simple">
-<li><p>Organisées dans un format prédéfini (ex : bases de données relationnelles)</p></li>
-<li><p>Faciles à rechercher et à analyser</p></li>
-<li><p>Exemples : feuilles de calcul, bases de données SQL</p></li>
-</ul>
-<p><strong>Données non structurées</strong></p>
-<ul class="simple">
-<li><p>Pas de format prédéfini</p></li>
-<li><p>Plus difficiles à analyser mais souvent riches en informations</p></li>
-<li><p>Exemples : textes, images, vidéos, médias sociaux</p></li>
-</ul>
-<p><strong>Données quantitatives</strong></p>
-<ul class="simple">
-<li><p>Numériques et mesurables</p></li>
-<li><p>Peuvent être :</p>
-<ul>
-<li><p>Discrètes : nombres entiers (ex : nombre d’enfants)</p></li>
-<li><p>Continues : n’importe quelle valeur dans un intervalle (ex : taille, poids)</p></li>
-</ul>
-</li>
-</ul>
-<p><strong>Données qualitatives</strong></p>
-<ul class="simple">
-<li><p>Descriptives et catégorielles</p></li>
-<li><p>Peuvent être :</p>
-<ul>
-<li><p>Nominales : catégories sans ordre naturel (ex : couleurs, genres)</p></li>
-<li><p>Ordinales : catégories avec un ordre naturel (ex : niveau d’éducation)</p></li>
-</ul>
-</li>
-</ul>
 </div>
-</section>
-<section id="statistique-descriptive-pour-la-data-science">
-<h2>4. Statistique descriptive pour la Data Science<a class="headerlink" href="#statistique-descriptive-pour-la-data-science" title="Lien vers cette rubrique">#</a></h2>
-<p>La statistique descriptive est essentielle pour comprendre et résumer les données :</p>
-<div class="toggle docutils container">
-<p><strong>Mesures de tendance centrale</strong></p>
-<ul class="simple">
-<li><p>Moyenne : somme des valeurs divisée par le nombre d’observations</p></li>
-<li><p>Médiane : valeur centrale quand les données sont ordonnées</p></li>
-<li><p>Mode : valeur la plus fréquente</p></li>
-</ul>
-<p><strong>Mesures de dispersion</strong></p>
-<ul class="simple">
-<li><p>Étendue : différence entre la valeur maximale et minimale</p></li>
-<li><p>Écart-type : mesure de la dispersion des valeurs autour de la moyenne</p></li>
-<li><p>Quartiles : divisent les données en quatre parties égales</p></li>
-</ul>
-<p><strong>Visualisations de base</strong></p>
-<ul class="simple">
-<li><p>Histogrammes : montrent la distribution des données numériques</p></li>
-<li><p>Diagrammes en barres : comparent des catégories</p></li>
-<li><p>Boîtes à moustaches : résument la distribution des données</p></li>
-<li><p>Nuages de points : montrent la relation entre deux variables</p></li>
-</ul>
-<p><strong>Analyse de corrélation</strong></p>
-<ul class="simple">
-<li><p>Mesure la force et la direction de la relation entre deux variables</p></li>
-<li><p>Le coefficient de corrélation varie de -1 (corrélation négative parfaite) à +1 (corrélation positive parfaite)</p></li>
-</ul>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hello
+</pre></div>
 </div>
-</section>
-<section id="importance-de-l-exploration-des-donnees">
-<h2>5. Importance de l’exploration des données<a class="headerlink" href="#importance-de-l-exploration-des-donnees" title="Lien vers cette rubrique">#</a></h2>
-<p>L’exploration des données (EDA - Exploratory Data Analysis) est une étape cruciale :</p>
-<div class="toggle docutils container">
-<p><strong>Objectifs de l’EDA</strong></p>
-<ul class="simple">
-<li><p>Comprendre la structure des données</p></li>
-<li><p>Détecter des anomalies et des valeurs aberrantes</p></li>
-<li><p>Identifier des patterns et des relations entre variables</p></li>
-<li><p>Formuler des hypothèses pour une analyse plus approfondie</p></li>
-</ul>
-<p><strong>Techniques d’EDA</strong></p>
-<ul class="simple">
-<li><p>Résumés statistiques (moyenne, médiane, écart-type)</p></li>
-<li><p>Visualisations (histogrammes, box plots, scatter plots)</p></li>
-<li><p>Analyse de corrélation</p></li>
-<li><p>Groupement et agrégation des données</p></li>
-</ul>
-<p><strong>Importance en Data Science</strong></p>
-<ul class="simple">
-<li><p>Aide à choisir les méthodes d’analyse appropriées</p></li>
-<li><p>Permet de détecter les problèmes dans les données avant la modélisation</p></li>
-<li><p>Fournit des insights qui peuvent guider l’analyse future</p></li>
-</ul>
 </div>
-</section>
-<section id="conclusion">
-<h2>Conclusion<a class="headerlink" href="#conclusion" title="Lien vers cette rubrique">#</a></h2>
-<p>La data science est un domaine vaste qui commence par une bonne compréhension des données et des techniques de base pour les explorer. Maîtriser ces fondamentaux est essentiel avant de se lancer dans des analyses plus complexes ou dans l’apprentissage automatique. L’exploration et la description des données sont des étapes cruciales qui guident toute la suite du processus de data science.</p>
-</section>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="premier-chapitre">
+<h1>Premier chapitre<a class="headerlink" href="#premier-chapitre" title="Lien vers cette rubrique">#</a></h1>
+<p>Balabba</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -582,26 +437,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contenu
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qu-est-ce-que-la-data-science">1. Qu’est-ce que la Data Science ?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#le-processus-de-data-science">2. Le processus de Data Science</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-de-donnees-en-data-science">3. Types de données en Data Science</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistique-descriptive-pour-la-data-science">4. Statistique descriptive pour la Data Science</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-de-l-exploration-des-donnees">5. Importance de l’exploration des données</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
