@@ -1,0 +1,956 @@
+
+<!DOCTYPE html>
+
+
+<html lang="fr" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Le processus de Data Science &#8212; Cours Introduction a la data science</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/translations.js?v=041d0952"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"TeX": {"Macros": {"Z": "\\mathbb{Z}", "V": "V", "N": "\\mathbb{N}", "C": "\\mathbb{C}", "Q": "\\mathbb{Q}", "K": "\\mathbb{K}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"], "R": ["\\mathbb{R}"], "B": ["\\mathcal{B}"], "norm": ["{\\Vert#1\\Vert}", 1], "abs": ["{\\left|#1\\right|}", 1], "coloneqq": ["{:=}"], "eqqcolon": ["{=:}"], "emph": ["\\pmb#1", 1], "tr": "\\operatorname{Spur}", "lin": "\\operatorname{lin}", "dv": "\\mathrm{div}~", "rot": "\\mathrm{rot}~", "Dim": "\\operatorname{dim}", "diag": "\\operatorname{diag}", "Kern": "\\operatorname{Kern}", "Bild": "\\operatorname{Bild}", "Im": "\\operatorname{Im}", "Rang": "\\operatorname{Rang}", "GL": "\\operatorname{GL}", "Eig": "\\operatorname{Eig}", "End": "\\operatorname{End}", "Hau": "\\operatorname{Haupt}", "mymathbb": ["\\boldsymbol{#1}", 1], "idx": "\\mathrm{d}x", "d": "\\mathrm{d}", "i": "\\mathrm{i}", "x": "\\mathbf{x}", "sign": "\\mathrm{sign}", "vec": ["\\mathbf{#1}", 1], "veczwei": ["\\begin{pmatrix} #1 \\\\ #2 \\end{pmatrix}", 2], "M": "\\mathcal{M}", "S": "\\mathbb{S}", "bone": "\\unicode{x1D7D9}", "Re": "\\mathrm{Re}", "Um": "\\operatorname{Um}", "Res": "\\operatorname{Res}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'workflow';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Pratique 1 : Analyse avec pandas" href="Pandas.html" />
+    <link rel="prev" title="Premiers pas en Python pour la science des données" href="Pratique1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="fr"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Passer au contenu principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Haut de page</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Cours Introduction a la data science - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Cours Introduction a la data science - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Recherche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    🏫 Cours : Introduction à la Data Science
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ch0-datascience.html">Qu’est-ce que la Data Science ? 🤔</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch1-rappel.html">Concepts de base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Pratique1.html">Premiers pas en Python pour la science des données</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Le processus de Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Pandas.html">Pratique 1 : Analyse avec pandas</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Dépôt source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fworkflow.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Ouvrez un problème"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Téléchargez cette page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/workflow.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Télécharger le fichier source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimer au format PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Mode plein écran"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Le processus de Data Science</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenu </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-du-probleme">Définition du problème</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identifier-clairement-lobjectif-du-projet">Identifier clairement l’objectif du projet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#determiner-les-questions-auxquelles-on-veut-repondre">Déterminer les questions auxquelles on veut répondre</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collecte-des-donnees">Collecte des données</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identifier-les-sources-de-donnees-pertinentes">Identifier les sources de données pertinentes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rassembler-les-donnees-necessaires">Rassembler les données nécessaires</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nettoyage-et-preparation-des-donnees">Nettoyage et préparation des données</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#traiter-les-donnees-manquantes-ou-incorrectes">Traiter les données manquantes ou incorrectes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formater-les-donnees-pour-lanalyse">Formater les données pour l’analyse</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploration-et-visualisation-des-donnees">Exploration et visualisation des données</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyser-les-caracteristiques-de-base-des-donnees">Analyser les caractéristiques de base des données</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creer-des-graphiques-pour-mieux-comprendre-les-donnees">Créer des graphiques pour mieux comprendre les données</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#histogrammes">Histogrammes</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#graphiques-en-barres">Graphiques en barres</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nuages-de-points-scatter-plots">Nuages de points (Scatter plots)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diagrammes-circulaires-pie-charts">Diagrammes circulaires (Pie charts)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#graphiques-lineaires">Graphiques linéaires</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="le-processus-de-data-science">
+<h1>Le processus de Data Science<a class="headerlink" href="#le-processus-de-data-science" title="Lien vers cette rubrique">#</a></h1>
+<p>Le processus en science des données suit une série d’étapes, chacune étant conçue pour assurer la qualité et la fiabilité des résultats finaux. La clarté des objectifs, la rigueur dans la collecte et la préparation des données, ainsi qu’une analyse soignée garantissent le succès d’un projet. Chacune de ces étapes est détaillée ci-dessous.</p>
+<hr class="docutils" />
+<section id="definition-du-probleme">
+<h2>Définition du problème<a class="headerlink" href="#definition-du-probleme" title="Lien vers cette rubrique">#</a></h2>
+<p>Définir le problème avec précision est crucial, car un problème mal défini risque de conduire à des analyses inutiles ou erronées. Cette étape permet d’orienter le travail vers un objectif clair, en évitant les dérives. Il ne suffit pas de vouloir « analyser des données » : il faut savoir <strong>ce que l’on veut accomplir</strong>, pourquoi cela est important, et comment les résultats seront utilisés.</p>
+<p>Il est également fondamental de bien comprendre le <strong>contexte métier</strong>. La manière dont un problème est formulé diffère selon le secteur. Par exemple, une entreprise de marketing pourrait chercher à améliorer les taux de conversion, tandis qu’un hôpital pourrait vouloir optimiser les soins à partir des dossiers patients.</p>
+<hr class="docutils" />
+<section id="identifier-clairement-lobjectif-du-projet">
+<h3>Identifier clairement l’objectif du projet<a class="headerlink" href="#identifier-clairement-lobjectif-du-projet" title="Lien vers cette rubrique">#</a></h3>
+<p>Chaque projet doit se concentrer sur un ou plusieurs objectifs bien définis. Un objectif clair permet de guider l’analyse et d’éviter de perdre du temps à explorer des pistes non pertinentes. Il aide aussi à fixer des métriques de performance précises, comme le taux de churn ou la précision d’un modèle prédictif.</p>
+<div class="admonition-exemple-objectif-dun-projet-danalyse-des-ventes admonition">
+<p class="admonition-title">Exemple : Objectif d’un projet d’analyse des ventes</p>
+<p>Le but est de prédire les produits les plus vendus pendant la période de Noël. Cela permettra à l’équipe de logistique d’optimiser le stock et d’éviter des ruptures pendant cette période critique.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="determiner-les-questions-auxquelles-on-veut-repondre">
+<h3>Déterminer les questions auxquelles on veut répondre<a class="headerlink" href="#determiner-les-questions-auxquelles-on-veut-repondre" title="Lien vers cette rubrique">#</a></h3>
+<p>Définir les bonnes questions à poser est tout aussi important que l’objectif. Ces questions orienteront la sélection des données et des outils d’analyse à utiliser. En répondant à ces questions, le scientifique des données peut s’assurer que l’analyse produira un impact mesurable et utile.</p>
+<div class="admonition-exemple-questions-pour-predire-le-churn admonition">
+<p class="admonition-title">Exemple : Questions pour prédire le churn</p>
+<ol class="arabic simple">
+<li><p>Quels sont les facteurs qui influencent le désabonnement des clients ?</p></li>
+<li><p>Les clients avec une faible activité récente sont-ils plus susceptibles de partir ?</p></li>
+<li><p>Y a-t-il une corrélation entre le type de produit acheté et le taux de churn ?</p></li>
+</ol>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="collecte-des-donnees">
+<h2>Collecte des données<a class="headerlink" href="#collecte-des-donnees" title="Lien vers cette rubrique">#</a></h2>
+<p>L’analyse de données ne peut se faire qu’à partir de <strong>données pertinentes et de bonne qualité</strong>. Il est essentiel d’identifier les sources les plus adaptées en fonction de l’objectif du projet. La qualité des résultats dépend largement de la qualité des données collectées.</p>
+<section id="identifier-les-sources-de-donnees-pertinentes">
+<h3>Identifier les sources de données pertinentes<a class="headerlink" href="#identifier-les-sources-de-donnees-pertinentes" title="Lien vers cette rubrique">#</a></h3>
+<p>Les sources peuvent être internes (systèmes d’information de l’entreprise) ou externes (open data, réseaux sociaux, APIs). Identifier la source correcte permet d’assurer que les données collectées répondent aux besoins spécifiques du projet.</p>
+<div class="admonition-exemple-sources-pour-une-analyse-de-comportement-dachat admonition">
+<p class="admonition-title">Exemple : Sources pour une analyse de comportement d’achat</p>
+<ol class="arabic simple">
+<li><p>Données de transactions provenant du site e-commerce.</p></li>
+<li><p>Informations sur les visites de clients dans les magasins physiques.</p></li>
+<li><p>Réseaux sociaux pour analyser les avis des consommateurs.</p></li>
+</ol>
+</div>
+</section>
+<section id="rassembler-les-donnees-necessaires">
+<h3>Rassembler les données nécessaires<a class="headerlink" href="#rassembler-les-donnees-necessaires" title="Lien vers cette rubrique">#</a></h3>
+<p>Une fois les sources identifiées, il faut <strong>intégrer les données</strong> en un format exploitable. Cette étape est cruciale, surtout si les données proviennent de plusieurs systèmes ou formats. Il peut être nécessaire d’écrire des scripts pour collecter des données automatiquement via des APIs ou d’accéder à des bases SQL pour extraire des informations.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="nettoyage-et-preparation-des-donnees">
+<h2>Nettoyage et préparation des données<a class="headerlink" href="#nettoyage-et-preparation-des-donnees" title="Lien vers cette rubrique">#</a></h2>
+<p>Les données collectées sont souvent imparfaites, avec des <strong>valeurs manquantes, des doublons ou des erreurs</strong>. Le nettoyage garantit que les analyses seront fiables et non biaisées par des données incorrectes ou incomplètes.</p>
+<section id="traiter-les-donnees-manquantes-ou-incorrectes">
+<h3>Traiter les données manquantes ou incorrectes<a class="headerlink" href="#traiter-les-donnees-manquantes-ou-incorrectes" title="Lien vers cette rubrique">#</a></h3>
+<p>Les <strong>valeurs manquantes</strong> sont courantes dans les bases de données : certaines informations peuvent être mal saisies, oubliées, ou indisponibles. Laisser ces valeurs non traitées peut biaiser les résultats ou même empêcher certains algorithmes de fonctionner. Plusieurs stratégies sont possibles :</p>
+<ol class="arabic simple">
+<li><p><strong>Suppression</strong> : Si peu de lignes sont affectées, il est parfois préférable de supprimer ces lignes.</p></li>
+<li><p><strong>Imputation</strong> : Remplacement des valeurs manquantes par une estimation (comme la moyenne ou la médiane). L’imputation réduit la perte d’informations mais peut introduire un biais.</p></li>
+</ol>
+<p>Il est important de choisir la méthode en fonction du contexte. Par exemple, remplacer toutes les valeurs manquantes par la moyenne peut fausser des tendances si les données sont très dispersées.</p>
+<div class="admonition-exemple-traitement-des-donnees-manquantes admonition">
+<p class="admonition-title">Exemple : Traitement des données manquantes</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Client_ID</p></th>
+<th class="head"><p>Date d’achat</p></th>
+<th class="head"><p>Montant (DH)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>2023-10-01</p></td>
+<td><p>150</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p></p></td>
+<td><p>200</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>2023-09-15</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul class="simple">
+<li><p><strong>Imputer la date manquante</strong> avec la date moyenne des achats précédents.</p></li>
+<li><p><strong>Remplacer le montant manquant</strong> par la médiane des transactions similaires.</p></li>
+</ul>
+</div>
+</section>
+<section id="formater-les-donnees-pour-lanalyse">
+<h3>Formater les données pour l’analyse<a class="headerlink" href="#formater-les-donnees-pour-lanalyse" title="Lien vers cette rubrique">#</a></h3>
+<p>Avant l’analyse, les données doivent être <strong>normalisées et mises en forme</strong>. Cela implique souvent :</p>
+<ul class="simple">
+<li><p><strong>Conversion des types de données</strong> : Par exemple, transformer des dates en objets datetime pour faciliter l’analyse chronologique.</p></li>
+<li><p><strong>Normalisation des valeurs</strong> : Mettre les variables sur la même échelle pour que certaines variables ne dominent pas les autres dans les modèles. Cela est particulièrement important pour les algorithmes sensibles aux échelles, comme les k-means ou les régressions logistiques.</p></li>
+</ul>
+<p>La <strong>normalisation</strong> consiste généralement à ramener les valeurs dans une plage [0,1] ou à les centrer autour de la moyenne avec un écart-type de 1. Cela permet d’éviter que des variables ayant des unités différentes (par exemple, euros et kilomètres) influencent de manière disproportionnée les résultats.</p>
+<div class="admonition-exemple-normalisation-dune-variable admonition">
+<p class="admonition-title">Exemple : Normalisation d’une variable</p>
+<p>Supposons un ensemble de données contenant des informations sur le prix et le poids d’articles.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Produit</p></th>
+<th class="head"><p>Prix (DH)</p></th>
+<th class="head"><p>Poids (kg)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>A</p></td>
+<td><p>100</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>B</p></td>
+<td><p>250</p></td>
+<td><p>2.5</p></td>
+</tr>
+<tr class="row-even"><td><p>C</p></td>
+<td><p>300</p></td>
+<td><p>3</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Après normalisation :</p>
+<ul class="simple">
+<li><p>Prix :</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ 
+(x - \mu) / \sigma 
+\]</div>
+<ul class="simple">
+<li><p>Poids :</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ 
+(x - \mu) / \sigma 
+\]</div>
+<p>Résultat :</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Produit</p></th>
+<th class="head"><p>Prix normalisé</p></th>
+<th class="head"><p>Poids normalisé</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>A</p></td>
+<td><p>-1.14</p></td>
+<td><p>-1.22</p></td>
+</tr>
+<tr class="row-odd"><td><p>B</p></td>
+<td><p>0.57</p></td>
+<td><p>0.00</p></td>
+</tr>
+<tr class="row-even"><td><p>C</p></td>
+<td><p>0.57</p></td>
+<td><p>1.22</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</section>
+<section id="exploration-et-visualisation-des-donnees">
+<h2>Exploration et visualisation des données<a class="headerlink" href="#exploration-et-visualisation-des-donnees" title="Lien vers cette rubrique">#</a></h2>
+<p>L’<strong>exploration et la visualisation des données</strong> sont des étapes cruciales pour comprendre la structure et les relations au sein des données. Ces outils permettent de détecter des <strong>patterns</strong>, de <strong>repérer des anomalies</strong> et de <strong>vérifier des hypothèses</strong>. Grâce aux visualisations, les résultats deviennent intuitifs et faciles à interpréter, même pour des non-spécialistes. Les graphiques sont particulièrement utiles dans des domaines tels que le commerce, l’économie ou l’industrie.</p>
+<section id="analyser-les-caracteristiques-de-base-des-donnees">
+<h3>Analyser les caractéristiques de base des données<a class="headerlink" href="#analyser-les-caracteristiques-de-base-des-donnees" title="Lien vers cette rubrique">#</a></h3>
+<p>L’analyse des caractéristiques de base passe par des <strong>statistiques descriptives</strong> pour résumer chaque variable du jeu de données. On y calcule des indicateurs comme :</p>
+<ul class="simple">
+<li><p><strong>Moyenne</strong> : Pour comprendre la valeur moyenne d’une variable (par exemple, le revenu moyen des ménages).</p></li>
+<li><p><strong>Médiane</strong> : Utile quand les données sont asymétriques ou contiennent des valeurs extrêmes.</p></li>
+<li><p><strong>Écart-type</strong> : Indique la dispersion autour de la moyenne, révélant si les données sont concentrées ou dispersées.</p></li>
+</ul>
+<div class="admonition-exemple-analyse-descriptive-des-ventes-dans-un-supermarche admonition">
+<p class="admonition-title">Exemple : Analyse descriptive des ventes dans un supermarché</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Produit</p></th>
+<th class="head"><p>Catégorie</p></th>
+<th class="head"><p>Prix (DH)</p></th>
+<th class="head"><p>Quantité vendue</p></th>
+<th class="head"><p>Date</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Pâtes</p></td>
+<td><p>Alimentation</p></td>
+<td><p>2.5</p></td>
+<td><p>150</p></td>
+<td><p>2023-10-10</p></td>
+</tr>
+<tr class="row-odd"><td><p>Jus d’orange</p></td>
+<td><p>Boissons</p></td>
+<td><p>3.0</p></td>
+<td><p>100</p></td>
+<td><p>2023-10-10</p></td>
+</tr>
+<tr class="row-even"><td><p>Shampooing</p></td>
+<td><p>Hygiène</p></td>
+<td><p>5.5</p></td>
+<td><p>50</p></td>
+<td><p>2023-10-10</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lait</p></td>
+<td><p>Boissons</p></td>
+<td><p>1.2</p></td>
+<td><p>200</p></td>
+<td><p>2023-10-10</p></td>
+</tr>
+<tr class="row-even"><td><p>Savon</p></td>
+<td><p>Hygiène</p></td>
+<td><p>1.0</p></td>
+<td><p>300</p></td>
+<td><p>2023-10-10</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul class="simple">
+<li><p><strong>Moyenne du prix</strong> : ( (2.5 + 3.0 + 5.5 + 1.2 + 1.0) / 5 = 2.64 , DH )</p></li>
+<li><p><strong>Quantité moyenne vendue</strong> : 160 unités par produit.</p></li>
+<li><p><strong>Écart-type du prix</strong> : Indique si les produits ont des prix homogènes ou si certains sont beaucoup plus chers.</p></li>
+</ul>
+</div>
+</section>
+<hr class="docutils" />
+<section id="creer-des-graphiques-pour-mieux-comprendre-les-donnees">
+<h3>Créer des graphiques pour mieux comprendre les données<a class="headerlink" href="#creer-des-graphiques-pour-mieux-comprendre-les-donnees" title="Lien vers cette rubrique">#</a></h3>
+<section id="histogrammes">
+<h4>Histogrammes<a class="headerlink" href="#histogrammes" title="Lien vers cette rubrique">#</a></h4>
+<p>Un <strong>histogramme</strong> est utile pour comprendre la distribution des valeurs d’une variable numérique, comme le prix ou les quantités vendues.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/8dfe817449473e92c1af419a15c9eb6b2d619a8a37d5152e56f3e870c3394449.png" src="_images/8dfe817449473e92c1af419a15c9eb6b2d619a8a37d5152e56f3e870c3394449.png" />
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="graphiques-en-barres">
+<h4>Graphiques en barres<a class="headerlink" href="#graphiques-en-barres" title="Lien vers cette rubrique">#</a></h4>
+<p>Les <strong>graphiques en barres</strong> permettent de comparer des quantités entre différentes catégories. Ils sont largement utilisés en commerce et en économie pour suivre l’évolution des ventes ou comparer les performances entre plusieurs segments.</p>
+<div class="admonition-exemple-ventes-de-produits-par-categorie admonition">
+<p class="admonition-title">Exemple : Ventes de produits par catégorie</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Catégorie</p></th>
+<th class="head"><p>Quantité vendue</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Alimentation</p></td>
+<td><p>150</p></td>
+</tr>
+<tr class="row-odd"><td><p>Boissons</p></td>
+<td><p>300</p></td>
+</tr>
+<tr class="row-even"><td><p>Hygiène</p></td>
+<td><p>350</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/32082c4e46ab99f1947cdf1dc0afb18cbe8185eea154047b998c85f5ed327b10.png" src="_images/32082c4e46ab99f1947cdf1dc0afb18cbe8185eea154047b998c85f5ed327b10.png" />
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="nuages-de-points-scatter-plots">
+<h4>Nuages de points (Scatter plots)<a class="headerlink" href="#nuages-de-points-scatter-plots" title="Lien vers cette rubrique">#</a></h4>
+<p>Les <strong>nuages de points</strong> sont utiles pour visualiser les relations entre deux variables continues. Par exemple, en commerce, on peut visualiser la relation entre le <strong>prix</strong> d’un produit et la <strong>quantité vendue</strong>.</p>
+<div class="admonition-exemple-relation-entre-le-prix-et-la-quantite-vendue admonition">
+<p class="admonition-title">Exemple : Relation entre le prix et la quantité vendue</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Produit</p></th>
+<th class="head"><p>Prix (DH)</p></th>
+<th class="head"><p>Quantité vendue</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Pâtes</p></td>
+<td><p>2.5</p></td>
+<td><p>150</p></td>
+</tr>
+<tr class="row-odd"><td><p>Jus d’orange</p></td>
+<td><p>3.0</p></td>
+<td><p>100</p></td>
+</tr>
+<tr class="row-even"><td><p>Shampooing</p></td>
+<td><p>5.5</p></td>
+<td><p>50</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lait</p></td>
+<td><p>1.2</p></td>
+<td><p>200</p></td>
+</tr>
+<tr class="row-even"><td><p>Savon</p></td>
+<td><p>1.0</p></td>
+<td><p>300</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/cf80f1673a1a6c38e223291879cb404318d7adc5c898f9dc23d3d9c05abcb8d2.png" src="_images/cf80f1673a1a6c38e223291879cb404318d7adc5c898f9dc23d3d9c05abcb8d2.png" />
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="diagrammes-circulaires-pie-charts">
+<h4>Diagrammes circulaires (Pie charts)<a class="headerlink" href="#diagrammes-circulaires-pie-charts" title="Lien vers cette rubrique">#</a></h4>
+<p>Les <strong>diagrammes circulaires</strong> sont utilisés pour montrer la part de chaque catégorie dans un total. Ils sont populaires pour représenter des parts de marché ou la répartition des ventes par segment.</p>
+<div class="admonition-exemple-repartition-des-ventes-par-categorie admonition">
+<p class="admonition-title">Exemple : Répartition des ventes par catégorie</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Catégorie</p></th>
+<th class="head"><p>Quantité vendue</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Alimentation</p></td>
+<td><p>150</p></td>
+</tr>
+<tr class="row-odd"><td><p>Boissons</p></td>
+<td><p>300</p></td>
+</tr>
+<tr class="row-even"><td><p>Hygiène</p></td>
+<td><p>350</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/59da7a5c4697be067a23234b3f6c09ca1ddcec382a364cd1dbd6328de990c040.png" src="_images/59da7a5c4697be067a23234b3f6c09ca1ddcec382a364cd1dbd6328de990c040.png" />
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="graphiques-lineaires">
+<h4>Graphiques linéaires<a class="headerlink" href="#graphiques-lineaires" title="Lien vers cette rubrique">#</a></h4>
+<p>Les <strong>graphiques linéaires</strong> permettent de visualiser des <strong>tendances</strong> dans le temps, comme l’évolution des ventes au cours des mois. Ils sont très utilisés en économie pour montrer des indicateurs de croissance ou des variations de prix.</p>
+<div class="admonition-exemple-ventes-mensuelles-de-lait admonition">
+<p class="admonition-title">Exemple : Ventes mensuelles de lait</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Mois</p></th>
+<th class="head"><p>Quantité vendue</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Janvier</p></td>
+<td><p>180</p></td>
+</tr>
+<tr class="row-odd"><td><p>Février</p></td>
+<td><p>220</p></td>
+</tr>
+<tr class="row-even"><td><p>Mars</p></td>
+<td><p>250</p></td>
+</tr>
+<tr class="row-odd"><td><p>Avril</p></td>
+<td><p>300</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/29ee55dbfd94f81c97299769ff71be1f6e22e2dedc1065768d55721b872949d9.png" src="_images/29ee55dbfd94f81c97299769ff71be1f6e22e2dedc1065768d55721b872949d9.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Pratique1.html"
+       title="page précédente">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">précédent</p>
+        <p class="prev-next-title">Premiers pas en Python pour la science des données</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Pandas.html"
+       title="page suivante">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title">Pratique 1 : Analyse avec pandas</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenu
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-du-probleme">Définition du problème</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identifier-clairement-lobjectif-du-projet">Identifier clairement l’objectif du projet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#determiner-les-questions-auxquelles-on-veut-repondre">Déterminer les questions auxquelles on veut répondre</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collecte-des-donnees">Collecte des données</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identifier-les-sources-de-donnees-pertinentes">Identifier les sources de données pertinentes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rassembler-les-donnees-necessaires">Rassembler les données nécessaires</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nettoyage-et-preparation-des-donnees">Nettoyage et préparation des données</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#traiter-les-donnees-manquantes-ou-incorrectes">Traiter les données manquantes ou incorrectes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formater-les-donnees-pour-lanalyse">Formater les données pour l’analyse</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploration-et-visualisation-des-donnees">Exploration et visualisation des données</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyser-les-caracteristiques-de-base-des-donnees">Analyser les caractéristiques de base des données</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creer-des-graphiques-pour-mieux-comprendre-les-donnees">Créer des graphiques pour mieux comprendre les données</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#histogrammes">Histogrammes</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#graphiques-en-barres">Graphiques en barres</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nuages-de-points-scatter-plots">Nuages de points (Scatter plots)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diagrammes-circulaires-pie-charts">Diagrammes circulaires (Pie charts)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#graphiques-lineaires">Graphiques linéaires</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Par Iaousse M'barek
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
