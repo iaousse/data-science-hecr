@@ -3,7 +3,7 @@
 ```{image} images/qr_code_datascience_hecr.png
 :alt: codeqr
 :class: bg-primary mb-1
-:width: 700px
+:width: 500px
 :align: center
 ```
 
