@@ -1,5 +1,14 @@
 # 🏫 Cours : Introduction à la Data Science
 
+```{image} images/qr_code_datascience_hecr.png
+:alt: codeqr
+:class: bg-primary mb-1
+:width: 700px
+:align: center
+```
+
+
+
 ## 👨‍🏫 Professeur : **IAOUSSE M'barek**
 
 | **Titre**                                     | **Institution**                                                                                                      | **Année**      |

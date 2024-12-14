@@ -8,5 +8,7 @@ chapters:
 - file: ch1-rappel
 - file: Pratique1
 - file: workflow
+- file: outils
 - file: Pandas
+- file: bigdata
 

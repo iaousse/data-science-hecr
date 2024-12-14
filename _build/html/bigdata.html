@@ -1,0 +1,712 @@
+
+<!DOCTYPE html>
+
+
+<html lang="fr" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Big data &amp; cloud computing &#8212; Cours Introduction a la data science</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/translations.js?v=041d0952"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'bigdata';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="prev" title="Pratique 1 : Analyse avec pandas" href="Pandas.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="fr"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Passer au contenu principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Haut de page</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Cours Introduction a la data science - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Cours Introduction a la data science - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Recherche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    🏫 Cours : Introduction à la Data Science
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ch0-datascience.html">Qu’est-ce que la Data Science ? 🤔</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch1-rappel.html">Concepts de base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Pratique1.html">Premiers pas en Python pour la science des données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Le processus de Data Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Pandas.html">Pratique 1 : Analyse avec pandas</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Big data &amp; cloud computing</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/iaousse/data-science-hecr" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Dépôt source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/iaousse/data-science-hecr/issues/new?title=Issue%20on%20page%20%2Fbigdata.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Ouvrez un problème"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Téléchargez cette page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/bigdata.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Télécharger le fichier source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimer au format PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Mode plein écran"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Big data & cloud computing</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenu </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-principes-fondamentaux-du-big-data">Les Principes Fondamentaux du Big Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#les-caracteristiques-du-big-data-les-v-du-big-data">Les Caractéristiques du Big Data (les « V » du Big Data)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#volume">Volume</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variete">Variété</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#velocite">Vélocité</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#veracite">Véracité</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#valeur">Valeur</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#technologies-et-infrastructures-de-big-data">Technologies et Infrastructures de Big Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hadoop-et-son-importance">Hadoop et son importance</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hadoop-distributed-file-system-hdfs">Hadoop Distributed File System (HDFS)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#clusters-de-big-data-et-leur-role">Clusters de Big Data et leur rôle</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#commodity-hardware-et-infrastructures-de-stockage">Commodity Hardware et infrastructures de stockage</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithmes-et-traitement-des-donnees">Algorithmes et Traitement des Données</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mapreduce-processus-map-et-reduce">MapReduce : Processus Map et Reduce</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#replication-des-donnees">Réplication des données</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#spilling-to-disk-pour-la-gestion-des-ressources">Spilling to Disk pour la gestion des ressources</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="big-data-cloud-computing">
+<h1>Big data &amp; cloud computing<a class="headerlink" href="#big-data-cloud-computing" title="Lien vers cette rubrique">#</a></h1>
+<p>Le Big Data est un terme qui désigne des ensembles de données extrêmement volumineux, diversifiés et générés à un rythme rapide. Avec l’évolution des technologies numériques, ces données, issues de sources variées et souvent non structurées, sont devenues une ressource cruciale pour les organisations modernes. Contrairement aux ensembles de données traditionnels, qui sont souvent structurés et d’une taille raisonnable, le Big Data peut englober des données provenant de capteurs, de réseaux sociaux, de transactions commerciales et même de sources non conventionnelles comme les vidéos ou les images. En analysant ces données, les entreprises et les institutions peuvent obtenir des insights précieux pour prendre des décisions éclairées, anticiper des tendances et améliorer leurs performances. Ce phénomène s’intègre de manière fondamentale dans de nombreux secteurs, notamment la finance, la santé, le marketing, et même les gouvernements, qui utilisent le Big Data pour optimiser leurs services et renforcer leur efficacité.</p>
+<p>Historiquement, l’essor du Big Data a suivi la montée en puissance d’Internet et de l’informatique. À la fin des années 1990 et au début des années 2000, avec l’augmentation rapide de la capacité de stockage numérique, les entreprises ont commencé à accumuler d’énormes quantités de données. Cependant, les outils traditionnels de gestion et d’analyse de données, tels que les bases de données relationnelles, ont rapidement montré leurs limites face à ce volume grandissant. La création de nouveaux systèmes, comme le Hadoop Distributed File System (HDFS) et le modèle MapReduce, a marqué une étape cruciale dans le traitement et le stockage des données massives. Ces systèmes permettent de distribuer les données sur plusieurs machines et de traiter des tâches en parallèle, rendant l’analyse de grandes quantités de données plus rapide et plus efficace.</p>
+<p>Les méthodes traditionnelles de traitement de données, conçues pour des données structurées et de taille limitée, ne peuvent pas répondre aux besoins actuels du Big Data. Les bases de données relationnelles, par exemple, sont souvent lentes et peu adaptées au stockage de données non structurées telles que des images, des vidéos ou des textes provenant de sources variées. De plus, ces méthodes ne permettent pas de traiter en temps réel des flux de données rapides, comme ceux produits par les appareils connectés ou les réseaux sociaux. Dans un monde où chaque seconde produit une quantité massive de nouvelles données, les systèmes de traitement traditionnels sont incapables de fournir des résultats rapidement et efficacement. En revanche, les technologies modernes de Big Data, avec leurs capacités de traitement parallèle et leur flexibilité dans le traitement de données variées, permettent de relever ces défis.</p>
+<p>Le Big Data se caractérise par plusieurs attributs clés, souvent appelés les « V » du Big Data : Volume, Variété, Vélocité, Véracité et Valeur.</p>
+<section id="les-principes-fondamentaux-du-big-data">
+<h2>Les Principes Fondamentaux du Big Data<a class="headerlink" href="#les-principes-fondamentaux-du-big-data" title="Lien vers cette rubrique">#</a></h2>
+<section id="les-caracteristiques-du-big-data-les-v-du-big-data">
+<h3>Les Caractéristiques du Big Data (les « V » du Big Data)<a class="headerlink" href="#les-caracteristiques-du-big-data-les-v-du-big-data" title="Lien vers cette rubrique">#</a></h3>
+<section id="volume">
+<h4>Volume<a class="headerlink" href="#volume" title="Lien vers cette rubrique">#</a></h4>
+<div class="admonition-definition admonition">
+<p class="admonition-title">Définition</p>
+<p>Le volume désigne la quantité massive de données générées et collectées par les entreprises, les appareils connectés, les réseaux sociaux, et de nombreuses autres sources. Ces données peuvent atteindre des téraoctets, des pétaoctets, voire des exaoctets.</p>
+</div>
+<p>Le volume des données disponibles augmente de façon exponentielle, principalement dû à l’Internet des Objets (IoT), aux réseaux sociaux, et à la numérisation des processus. Par exemple, les plateformes de streaming vidéo et les réseaux sociaux génèrent chaque jour des quantités astronomiques de données, qu’il serait impossible de traiter et d’analyser avec des méthodes traditionnelles.</p>
+<div class="admonition-exemple admonition">
+<p class="admonition-title">Exemple</p>
+<p>Un exemple concret est celui de Facebook, qui collecte des données sur chaque interaction des utilisateurs avec ses contenus (likes, partages, commentaires). Ces données, lorsqu’elles sont agrégées, permettent à l’entreprise de mieux comprendre les comportements et les préférences de ses utilisateurs.</p>
+</div>
+</section>
+<section id="variete">
+<h4>Variété<a class="headerlink" href="#variete" title="Lien vers cette rubrique">#</a></h4>
+<div class="admonition-definition admonition">
+<p class="admonition-title">Définition</p>
+<p>La variété se réfère à la diversité des types de données collectées, qu’il s’agisse de données structurées (bases de données relationnelles), semi-structurées (fichiers XML, JSON) ou non structurées (images, vidéos, messages sur les réseaux sociaux).</p>
+</div>
+<p>La diversité des sources de données et des formats rend l’analyse plus complexe mais également plus riche. Les données textuelles issues des réseaux sociaux, les images de vidéosurveillance, les données de capteurs et même les transactions financières sont toutes des types de données que les entreprises doivent intégrer pour obtenir une vision complète de leurs activités.</p>
+<div class="admonition-exemple admonition">
+<p class="admonition-title">Exemple</p>
+<p>Dans le domaine de la santé, les hôpitaux génèrent des données variées, incluant des dossiers médicaux électroniques (données structurées), des images médicales (données non structurées), et des notes de médecins (données semi-structurées). Ces différentes formes de données permettent d’enrichir les analyses pour améliorer les diagnostics et les traitements.</p>
+</div>
+</section>
+<section id="velocite">
+<h4>Vélocité<a class="headerlink" href="#velocite" title="Lien vers cette rubrique">#</a></h4>
+<div class="admonition-definition admonition">
+<p class="admonition-title">Définition</p>
+<p>La vélocité indique la vitesse à laquelle les données sont générées et doivent être traitées. Dans un environnement de Big Data, les données sont souvent produites en continu et en temps réel.</p>
+</div>
+<p>La vitesse de génération des données est un défi majeur dans le Big Data. L’ère du numérique exige que ces données soient traitées et analysées en temps réel pour que les entreprises puissent répondre rapidement aux changements de marché et aux besoins des clients. Par exemple, les bourses de valeurs traitent des millions de transactions par seconde, nécessitant une infrastructure capable de gérer cette vélocité.</p>
+<div class="admonition-exemple admonition">
+<p class="admonition-title">Exemple</p>
+<p>Dans l’industrie des services financiers, la détection de fraude en temps réel est essentielle. Les transactions doivent être analysées immédiatement pour identifier des comportements suspects avant qu’une fraude ne se produise, ce qui nécessite un traitement des données à très haute vélocité.</p>
+</div>
+</section>
+<section id="veracite">
+<h4>Véracité<a class="headerlink" href="#veracite" title="Lien vers cette rubrique">#</a></h4>
+<div class="admonition-definition admonition">
+<p class="admonition-title">Définition</p>
+<p>La véracité fait référence à la qualité et à la fiabilité des données. Les données collectées doivent être précises, cohérentes, complètes, et sans ambiguïté pour être utiles dans les analyses.</p>
+</div>
+<p>La véracité est particulièrement critique, car des données de mauvaise qualité peuvent fausser les analyses et mener à des décisions erronées. Les organisations investissent donc dans des processus de nettoyage et de validation des données pour s’assurer que leurs analyses reposent sur des informations fiables.</p>
+<div class="admonition-exemple admonition">
+<p class="admonition-title">Exemple</p>
+<p>Dans le domaine de la logistique, des données imprécises sur les stocks peuvent entraîner des ruptures de stock ou des surcharges d’inventaire. La véracité des données est donc cruciale pour optimiser la gestion des stocks et la satisfaction des clients.</p>
+</div>
+</section>
+<section id="valeur">
+<h4>Valeur<a class="headerlink" href="#valeur" title="Lien vers cette rubrique">#</a></h4>
+<div class="admonition-definition admonition">
+<p class="admonition-title">Définition</p>
+<p>La valeur est le bénéfice potentiel que les organisations peuvent tirer de l’analyse des données pour générer des insights pertinents et soutenant la prise de décision.</p>
+</div>
+<p>Le but ultime du Big Data est de transformer ces vastes quantités de données en informations exploitables pour l’entreprise. La valeur de ces données est souvent révélée par des analyses qui peuvent, par exemple, aider à anticiper les tendances du marché, personnaliser les services clients, et optimiser les processus.</p>
+<div class="admonition-exemple admonition">
+<p class="admonition-title">Exemple</p>
+<p>Dans le commerce de détail, les analyses de données permettent d’optimiser les promotions et de personnaliser les offres pour chaque client, augmentant ainsi la satisfaction client et les revenus.</p>
+</div>
+</section>
+</section>
+<section id="technologies-et-infrastructures-de-big-data">
+<h3>Technologies et Infrastructures de Big Data<a class="headerlink" href="#technologies-et-infrastructures-de-big-data" title="Lien vers cette rubrique">#</a></h3>
+<p>Avec l’émergence du Big Data, de nouvelles technologies et infrastructures ont été développées pour répondre aux défis posés par le volume, la diversité et la vélocité des données. Les systèmes traditionnels n’étant plus capables de traiter efficacement des ensembles de données massifs et complexes, des plateformes spécialisées ont vu le jour, parmi lesquelles Hadoop et son écosystème occupent une place centrale. Cette section examine les principales technologies et infrastructures qui ont permis le développement et l’implémentation de solutions Big Data.</p>
+<section id="hadoop-et-son-importance">
+<h4>Hadoop et son importance<a class="headerlink" href="#hadoop-et-son-importance" title="Lien vers cette rubrique">#</a></h4>
+<div class="admonition-definition admonition">
+<p class="admonition-title">Définition</p>
+<p>Hadoop est une plateforme open-source de stockage et de traitement de données massives en mode distribué. Il a été développé pour permettre aux organisations de traiter et analyser de grandes quantités de données de manière rapide, fiable et économique.</p>
+</div>
+<p>Hadoop est devenu la technologie de référence pour le Big Data, grâce à sa capacité à distribuer des données et des traitements sur un grand nombre de machines, ce qui permet d’obtenir des résultats rapidement sans nécessiter de superordinateurs coûteux. Il repose sur deux principaux composants : le Hadoop Distributed File System (HDFS) pour le stockage distribué et le modèle de programmation MapReduce pour le traitement des données. Ensemble, ils permettent de diviser les tâches en plusieurs sous-tâches et de les exécuter en parallèle, réduisant ainsi le temps de traitement.</p>
+<div class="admonition-exemple admonition">
+<p class="admonition-title">Exemple</p>
+<p>Dans le secteur de l’e-commerce, Hadoop est utilisé pour analyser le comportement d’achat des utilisateurs en temps quasi réel, en traitant des millions de transactions et d’interactions chaque jour. Les données sont distribuées et analysées rapidement, ce qui permet aux entreprises de comprendre les tendances et de proposer des recommandations de produits personnalisées.</p>
+</div>
+</section>
+<section id="hadoop-distributed-file-system-hdfs">
+<h4>Hadoop Distributed File System (HDFS)<a class="headerlink" href="#hadoop-distributed-file-system-hdfs" title="Lien vers cette rubrique">#</a></h4>
+<div class="admonition-definition admonition">
+<p class="admonition-title">Définition</p>
+<p>Hadoop Distributed File System (HDFS) est le système de fichiers distribué de Hadoop. Il permet de stocker des fichiers volumineux en les divisant en blocs, puis en les répliquant sur plusieurs nœuds du cluster, assurant ainsi la disponibilité et la tolérance aux pannes.</p>
+</div>
+<p>HDFS est essentiel pour la fiabilité et la scalabilité de Hadoop. Chaque fichier est fragmenté en blocs de données et chaque bloc est copié sur plusieurs nœuds du cluster. En cas de défaillance d’un nœud, les données restent accessibles à partir d’autres nœuds, garantissant ainsi la continuité des opérations sans interruption. Cette architecture permet également de gérer des données de grande taille sans nécessiter d’infrastructures complexes.</p>
+<div class="admonition-exemple admonition">
+<p class="admonition-title">Exemple</p>
+<p>Par exemple, un moteur de recherche peut utiliser HDFS pour stocker et indexer des pages web provenant de sources multiples. En cas de défaillance d’un serveur, HDFS continue de fournir les données via les copies répliquées sur d’autres serveurs, maintenant ainsi la disponibilité du système.</p>
+</div>
+</section>
+<section id="clusters-de-big-data-et-leur-role">
+<h4>Clusters de Big Data et leur rôle<a class="headerlink" href="#clusters-de-big-data-et-leur-role" title="Lien vers cette rubrique">#</a></h4>
+<div class="admonition-definition admonition">
+<p class="admonition-title">Définition</p>
+<p>Un cluster de Big Data est un ensemble de machines interconnectées qui travaillent ensemble pour stocker, gérer et analyser de grandes quantités de données. Chaque machine, ou nœud, exécute une partie de la tâche globale, ce qui permet de diviser la charge de travail et d’accélérer le traitement des données.</p>
+</div>
+<p>Les clusters sont une infrastructure clé dans les environnements Big Data, car ils permettent de gérer des volumes de données énormes en utilisant des ressources matérielles et logicielles distribuées. Dans un cluster, chaque nœud exécute une partie des calculs, et l’ensemble des résultats est ensuite agrégé pour fournir une réponse rapide et précise. L’architecture des clusters facilite également la montée en charge : si les données ou les exigences de traitement augmentent, il est possible d’ajouter des nœuds supplémentaires pour augmenter la capacité.</p>
+<div class="admonition-exemple admonition">
+<p class="admonition-title">Exemple</p>
+<p>Dans le domaine de la recherche scientifique, les clusters de Big Data sont utilisés pour analyser des ensembles de données massifs provenant de simulations, de relevés climatiques ou d’études génomiques. La répartition des tâches entre plusieurs nœuds permet d’accélérer considérablement le temps de calcul.</p>
+</div>
+</section>
+<section id="commodity-hardware-et-infrastructures-de-stockage">
+<h4>Commodity Hardware et infrastructures de stockage<a class="headerlink" href="#commodity-hardware-et-infrastructures-de-stockage" title="Lien vers cette rubrique">#</a></h4>
+<div class="admonition-definition admonition">
+<p class="admonition-title">Définition</p>
+<p>Le terme « commodity hardware » désigne du matériel standard, facilement accessible et bon marché, utilisé dans les clusters de Big Data pour le stockage et le traitement des données. Contrairement aux systèmes de stockage spécialisés, le commodity hardware permet de réduire les coûts sans compromettre la performance.</p>
+</div>
+<p>L’un des principes fondamentaux du Big Data est de tirer parti de matériel économique, sans investir dans des serveurs coûteux. En utilisant des composants standards, tels que des disques durs classiques et des processeurs ordinaires, les organisations peuvent construire des infrastructures de stockage et de traitement de données à grande échelle tout en maîtrisant les coûts. Les logiciels comme Hadoop sont conçus pour fonctionner efficacement sur ce type de matériel, en assurant la gestion des pannes et la redondance des données.</p>
+<div class="admonition-exemple admonition">
+<p class="admonition-title">Exemple</p>
+<p>Les grandes entreprises de technologie, comme Facebook et Twitter, utilisent des infrastructures basées sur du commodity hardware pour stocker et traiter les données de leurs utilisateurs. Ces infrastructures permettent de maintenir des coûts raisonnables tout en répondant aux besoins de traitement massif des données.</p>
+</div>
+</section>
+</section>
+<section id="algorithmes-et-traitement-des-donnees">
+<h3>Algorithmes et Traitement des Données<a class="headerlink" href="#algorithmes-et-traitement-des-donnees" title="Lien vers cette rubrique">#</a></h3>
+<p>Les algorithmes et les méthodes de traitement des données sont au cœur de la gestion du Big Data. Dans les environnements de Big Data, les approches traditionnelles de traitement en série ne sont pas efficaces pour traiter les volumes massifs de données. Des algorithmes et des méthodes spécifiques, tels que MapReduce, la réplication des données et le spilling to disk, permettent d’optimiser le traitement et de garantir la disponibilité des données, même en cas de contraintes de ressources.</p>
+<section id="mapreduce-processus-map-et-reduce">
+<h4>MapReduce : Processus Map et Reduce<a class="headerlink" href="#mapreduce-processus-map-et-reduce" title="Lien vers cette rubrique">#</a></h4>
+<div class="admonition-definition admonition">
+<p class="admonition-title">Définition</p>
+<p>MapReduce est un modèle de programmation développé pour traiter de grandes quantités de données en parallèle. Il se compose de deux étapes principales : le processus Map, qui divise la tâche en sous-tâches traitées individuellement, et le processus Reduce, qui agrège les résultats pour produire une sortie finale.</p>
+</div>
+<p>Le modèle MapReduce est conçu pour fonctionner efficacement dans un environnement distribué, où chaque nœud d’un cluster peut exécuter des parties de l’algorithme en parallèle. Dans le processus <strong>Map</strong>, les données sont d’abord divisées et traitées indépendamment, ce qui permet une distribution de la charge de travail. Ensuite, dans le processus <strong>Reduce</strong>, les résultats partiels des différentes étapes Map sont combinés pour obtenir le résultat global. Cette approche permet de traiter des volumes massifs de données de manière efficace, en exploitant la puissance de traitement parallèle des clusters.</p>
+<div class="admonition-exemple admonition">
+<p class="admonition-title">Exemple</p>
+<p>Pour une entreprise de vente en ligne, MapReduce peut être utilisé pour analyser des millions de transactions afin de détecter des tendances d’achat. Le processus Map pourrait extraire et comptabiliser les achats par catégorie de produit, et le processus Reduce pourrait combiner ces résultats pour identifier les produits les plus populaires par région et par saison.</p>
+</div>
+</section>
+<section id="replication-des-donnees">
+<h4>Réplication des données<a class="headerlink" href="#replication-des-donnees" title="Lien vers cette rubrique">#</a></h4>
+<div class="admonition-definition admonition">
+<p class="admonition-title">Définition</p>
+<p>La réplication des données est une méthode qui consiste à dupliquer les données sur plusieurs nœuds d’un cluster. Cette technique permet d’assurer la durabilité et la disponibilité des données en cas de panne d’un nœud, garantissant ainsi que les données restent accessibles même dans des environnements à haute tolérance aux pannes.</p>
+</div>
+<p>Dans un système de Big Data, la perte de données ou l’interruption du service est souvent inacceptable, surtout dans les secteurs où la continuité des opérations est essentielle. La réplication permet de conserver des copies des données sur plusieurs nœuds d’un cluster. En cas de panne ou de dysfonctionnement d’un nœud, les autres nœuds du cluster peuvent prendre le relais, évitant ainsi les pertes de données. Cette redondance est une composante essentielle pour les infrastructures de Big Data, qui doivent être à la fois robustes et résilientes.</p>
+<div class="admonition-exemple admonition">
+<p class="admonition-title">Exemple</p>
+<p>Dans les systèmes de banque en ligne, la réplication des données assure que les informations des comptes clients soient toujours disponibles, même si un serveur de données tombe en panne. Cette redondance garantit que les clients peuvent accéder à leurs informations en tout temps sans interruption de service.</p>
+</div>
+</section>
+<section id="spilling-to-disk-pour-la-gestion-des-ressources">
+<h4>Spilling to Disk pour la gestion des ressources<a class="headerlink" href="#spilling-to-disk-pour-la-gestion-des-ressources" title="Lien vers cette rubrique">#</a></h4>
+<div class="admonition-definition admonition">
+<p class="admonition-title">Définition</p>
+<p>Le spilling to disk est une technique utilisée pour gérer les situations où la mémoire vive (RAM) disponible est insuffisante pour traiter un ensemble de données. Lorsqu’un programme de traitement de données manque de mémoire, il déplace temporairement les données vers le disque dur, permettant de continuer le traitement sans interruption.</p>
+</div>
+<p>Dans un environnement Big Data, la taille des données dépasse souvent la capacité de la mémoire vive, surtout lorsque des calculs complexes sont effectués. Le spilling to disk permet de pallier cette limitation en utilisant l’espace disque comme mémoire auxiliaire. Bien que cela entraîne une certaine lenteur par rapport au traitement en mémoire, cette technique est essentielle pour traiter des ensembles de données de grande taille avec des ressources limitées.</p>
+<div class="admonition-exemple admonition">
+<p class="admonition-title">Exemple</p>
+<p>Dans le cadre d’une analyse de données massives, si un programme de tri des données dépasse la capacité de la mémoire, le spilling to disk permet de stocker temporairement des parties de données sur le disque pour terminer le tri. Cette technique est couramment utilisée dans les systèmes de traitement de Big Data pour éviter les erreurs de dépassement de mémoire.</p>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Pandas.html"
+       title="page précédente">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">précédent</p>
+        <p class="prev-next-title">Pratique 1 : Analyse avec pandas</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenu
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-principes-fondamentaux-du-big-data">Les Principes Fondamentaux du Big Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#les-caracteristiques-du-big-data-les-v-du-big-data">Les Caractéristiques du Big Data (les « V » du Big Data)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#volume">Volume</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variete">Variété</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#velocite">Vélocité</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#veracite">Véracité</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#valeur">Valeur</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#technologies-et-infrastructures-de-big-data">Technologies et Infrastructures de Big Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hadoop-et-son-importance">Hadoop et son importance</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hadoop-distributed-file-system-hdfs">Hadoop Distributed File System (HDFS)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#clusters-de-big-data-et-leur-role">Clusters de Big Data et leur rôle</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#commodity-hardware-et-infrastructures-de-stockage">Commodity Hardware et infrastructures de stockage</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithmes-et-traitement-des-donnees">Algorithmes et Traitement des Données</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mapreduce-processus-map-et-reduce">MapReduce : Processus Map et Reduce</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#replication-des-donnees">Réplication des données</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#spilling-to-disk-pour-la-gestion-des-ressources">Spilling to Disk pour la gestion des ressources</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Par Iaousse M'barek
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
